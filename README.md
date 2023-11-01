@@ -1,92 +1,66 @@
-# Abdulgafar Neodymium
+# Introduction
+This repository is supposed to be used as a template for test automation projects using [Neodymium Library](https://github.com/Xceptance/neodymium-library). It contains both a pure Java and a Cucumber approach. It is a test automation template based on best practice libraries and added missing functionalities designed to aid test automation done by Xceptance.
+
+# Getting familiar
+Please perform the Hello World tutorial first to get a first insight and feeling for test automation with Neodymium.
+Afterwards you will be ready to deep dive into more complex scenarios. 
+Our [Neodymium-example](https://github.com/Xceptance/neodymium-example) project demonstrates all the cool stuff that's possible with Neodymium.
+Furthermore, we've set up a [Neodymium Wiki](https://github.com/Xceptance/neodymium-library/wiki) to explain different concepts and use cases. 
+
+# Hello World
+## Get your own copy
+1. Fork this project
+2. Rename the project (Open the `pom.xml` and adjust the name tag)
+3. Import the project into an IDE of your choice. (It should be able to handle Maven project in order to sort all the dependencies for you)
+
+## Set up
+4. Set up WebDrivers and Browsers
+   1. Open `config\neodymium.properties`
+   2. Set and uncomment the property `neodymium.webDriver.chrome.pathToDriverServer`
+   3. Set and uncomment the property `neodymium.webDriver.chrome.pathToBrowser` if you want don't want to use the default - Chrome
+5. Change the URL (or try with [https://www.xceptance.com:443/en/](https://www.xceptance.com:443/en/) (already set) for demo purposes)
+   1. Open `config\neodymium.properties`
+   2. Set `neodymium.url.protocol` to the protocol, i.e. `https`
+   3. Set `neodymium.url.host` to the host, i.e. `www.xceptance.com`
+   4. Set `neodymium.url.site` to the path, i.e. `en`
+   5. Set `neodymium.url.port` to the port with a colon in front, i.e. `:443`
+   
+   Within the configuration, those values are combined using the following rule: `${neodymium.url.protocol}://${neodymium.url.host}${neodymium.url.port}/${neodymium.url.site}/`
+   
+   Instead of setting all these single values, the property `neodymium.url` could also simply be changed to the desired URL. However, since the [Owner](http://owner.aeonbits.org/) framework allows reading and especially mutating properties, it is often more helpful to separate the URL in its respective parts.
 
 
+## Execution
+6. Run the `template.neodymium.tests.smoke.HomePageTest.java` from the Neodymium package as JUnit test
 
-## Getting started
+## Validate the World with Neodymium 
+7. Adjust the validation within the `template.pageObjects.pages.HomePage.java` to match the site that is going to be tested (only if you changed it)
+8. Run the `template.neodymium.tests.smoke.HomePageTest.java` again
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Validate the World with Cucumber
+9. Run the `template.cucumber.tests.RunAllFeatures.java` from the Cucumber package as JUnit test
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+# Taking ownership 
+If you want to adopt the template for your own project, you'll want to change the template folder to something more project specific.
+Please perform the following steps to rename it:
+1. Rename the `template` package to a name of your choice
+2. Update the `pom.xml` (especially the Surefire configuration that states which tests should be executed)
+3. Update the `@CucumberOptions` within `template.cucumber.tests.RunAllTests.java` to have the new path in features and glue
 
-## Add your files
+# Remove the unneeded code approach
+After you have decided whether you want to go the pure Java or the Cucumber way. You can simply delete the folder of the unused approach (either `src/test/java/template/neodymium` or `src/test/java/template/cucumber`).
+If you like you can also clean up the Surefire configuration in the `pom.xml` by removing the now unused `<include>` path.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
+```XML
+<includes>
+    <!-- Neodymium (pure Java) test cases -->
+    <include>template/neodymium/tests/**/*Test.java</include>
+    <!-- Cucumber test cases -->
+    <include>template/cucumber/tests/RunAllFeaturesTest.java</include>
+</includes>
 ```
-cd existing_repo
-git remote add origin https://gitlab.xceptance.de/internship/abdulgafar-neodymium.git
-git branch -M master
-git push -uf origin master
-```
 
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.xceptance.de/internship/abdulgafar-neodymium/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+In case you want to use both approaches you are free to do so and take advantage of both of their strengths.
 
 ## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+MIT
