@@ -6,7 +6,7 @@ default:
       "1":
         title: Services
       "2":
-        title: XLT
+        title: xlt
       "3":
         title: Unternehmen
       "4":
@@ -17,5 +17,51 @@ default:
         title: Kontakt
       "7":
         title: Blog
+# United States
+en_US:
+  homepage:
+    title: Xceptance - The Software Testing Experts
+  header:
+    topNavigation:
+      "1":
+        title: Services
+      "2":
+        title: XLT
+      "3":
+        title: Company
+      "4":
+        title: News
+      "5":
+        title: Careers
+      "6":
+        title: Contact
+      "7":
+        title: Blog
+  footer:
+    address:
+      "1": Jena, Germany Headquarters
+      "2": Cambridge, MA, USA
+    email:
+      "1": kontakt@xceptance.de
+      "2": contact@xceptance.com
+    tel:
+      "1": +49-3641-376300
+      "2": +1-617-225-4335
+    linkTexts:
+      "1": About Us
+      "2": Contact
+      "3": Services
+      "4": XLT
+      "5": References
+      "6": Privacy
+      "7": Blog
+      "8": Xing
+      "9": LinkedIn
+      "10": Twitter
+      "11": GitHub
+    newsTexts:
+      "1": Latest News
+      "2": Donation to Wandlungswelten
+      "3": The University Summer Festival
+      "4": Xceptance sparks great ideas
 
-   
