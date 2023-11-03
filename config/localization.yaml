@@ -1,4 +1,21 @@
 default:
   homepage:
-    title: Xceptance - The Software Testing Experts 
+    title: Xceptance - The Software Testing Experts
+  header:
+    topNavigation:
+      "1":
+        title: Services
+      "2":
+        title: XLT
+      "3":
+        title: Unternehmen
+      "4":
+        title: News
+      "5":
+        title: Jobs
+      "6":
+        title: Kontakt
+      "7":
+        title: Blog
+
    

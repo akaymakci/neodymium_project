@@ -5,8 +5,10 @@ import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.matchText;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.$$;
 
+import com.xceptance.neodymium.util.Neodymium;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Step;
 
@@ -26,7 +28,7 @@ public class HomePage extends AbstractPageObject
     {
         // Calls validateStructure of the parent class to validate basic things
         super.validateStructure();
-        
+
         // Verifies the company Logo and name are visible.
         $("#navigation .navbar-brand a[title=Home]").shouldBe(visible);
 
@@ -38,7 +40,6 @@ public class HomePage extends AbstractPageObject
 
         // Asserts the first headline is there.
         $("#service-areas .landing-intro > h1").shouldBe(matchText("[A-Z].{3,}"));
-
         // Asserts the animated carousel is there.
         $("#myCarousel").shouldBe(visible);
 
@@ -48,5 +49,18 @@ public class HomePage extends AbstractPageObject
 
         // Verifies the company button is there.
         $$("#xlt-background .container p.lead > a.btn-primary").shouldHave(sizeGreaterThan(0));
+
+        // Verifies the company addresses in footer section are there.
+        $$("#addresses h3").shouldHave(sizeGreaterThan(0));
+
+        // Verifies the company emails in footer section are there.
+        $$("#addresses .email").shouldHave(sizeGreaterThan(0));
+
+        // Verifies the company phone numbers in footer section are there.
+        $$("#addresses .tel").shouldHave(sizeGreaterThan(0));
+
+        // Verifies the footer links section is there.
+        $$(".col-xs-6 ul li a").shouldHave(sizeGreaterThan(0));
+
     }
 }
