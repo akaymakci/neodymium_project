@@ -2,14 +2,16 @@ package template.pageobjects.pages;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.WebDriverRunner;
 import com.xceptance.neodymium.util.Neodymium;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Step;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class HomePage extends AbstractPageObject
 {
@@ -20,14 +22,39 @@ public class HomePage extends AbstractPageObject
         $("#service-areas").should(exist);
         return this;
     }
+    @Step("validate poster slide")
+    public void validatePosterSlide(String position, String headline)
+    {
+        // TODO - improve
+//        System.out.println("myCaroulse Slide Element = "+ $$("#myCarousel .carousel-indicators [data-target]").toString());
+//        System.out.println("Texts = "+$$(".carousel-caption h1").texts().get(0).toString());
+//        System.out.println("Neodymium Localized Texts = ");
+//        System.out.println(Neodymium.localizedText(headline));
+//        $$(".carousel-indicators li").findBy(exactText(position)).click();
+        jsClickFunction($(".carousel-indicators li:nth-child(1)").shouldHave(exactText(position)));
+        jsClickFunction($(".carousel-indicators li:nth-child(2)").shouldHave(exactText(position))); //.click();
+        jsClickFunction($(".carousel-indicators li:nth-child(3)").shouldHave(exactText(position)));//.click();
 
+        $$(".carousel-caption h1").findBy(exactText(Neodymium.localizedText(headline))).shouldBe(visible);
+        $$(".carousel-caption .btn-primary").findBy(exactText(Neodymium.localizedText("slider.button.1"))).shouldBe(visible);
+    }
+    @Step("validate poster slide")
+    public void validatePosterSlide()
+    {
+        validatePosterSlide("1", "slider.headline.1");
+        validatePosterSlide("2", "slider.headline.2");
+        validatePosterSlide("3", "slider.headline.3");
+    }
     @Then("^The home page should have heading, carousel, services and the company button$")
     @Step("validate the home page")
     public void validateStructure()
     {
         // Calls validateStructure of the parent class to validate basic things
         super.validateStructure();
+
+        // Annoying privacy message close
         $("#privacy-message .close").click();
+
         // Verifies the company Logo and name are visible.
         $("#navigation .navbar-brand a[title=Home]").shouldBe(visible);
 
@@ -42,6 +69,8 @@ public class HomePage extends AbstractPageObject
 
         // Asserts the animated carousel is there.
         $("#myCarousel").shouldBe(visible);
+
+        validatePosterSlide();
 
         // Verifies the "services" section is there.
         // Asserts there's at least 1 item in the list.
@@ -97,5 +126,9 @@ public class HomePage extends AbstractPageObject
         $$("#news-section p a").findBy(exactText(Neodymium.localizedText("footer.newsTexts.2"))).shouldBe(visible);
         $$("#news-section p a").findBy(exactText(Neodymium.localizedText("footer.newsTexts.3"))).shouldBe(visible);
         $$("#news-section p a").findBy(exactText(Neodymium.localizedText("footer.newsTexts.4"))).shouldBe(visible);
+    }
+    public void jsClickFunction(WebElement element) {
+        JavascriptExecutor jse = (JavascriptExecutor) WebDriverRunner.getWebDriver(); ;
+        jse.executeScript("arguments[0].click()", element);
     }
 }

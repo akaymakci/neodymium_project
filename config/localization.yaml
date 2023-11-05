@@ -21,6 +21,17 @@ default:
 en_US:
   homepage:
     title: Xceptance - The Software Testing Experts
+  slider:
+    headline:
+      "1": |
+        We Test Software.
+        Because Quality Matters.
+      "2": We are Salesforce Commerce Cloud Partner.
+      "3": XLT - The Open Source Performance Test Tool.
+    button:
+      "1": Learn More
+      "2": Learn More
+      "3": Download
   header:
     topNavigation:
       "1":
