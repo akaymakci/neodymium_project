@@ -4,6 +4,8 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
+import com.codeborne.selenide.ClickOptions;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.WebDriverRunner;
 import com.xceptance.neodymium.util.Neodymium;
@@ -25,42 +27,27 @@ public class HomePage extends AbstractPageObject
         return this;
     }
     @Step("validate poster slide")
-    public void validatePosterSlide(String position, String headline)
+    public void validatePosterSlide(int position, String headline)
     {
         // TODO - improve
-//        System.out.println("myCaroulse Slide Element = "+ $$("#myCarousel .carousel-indicators [data-target]").toString());
-//        System.out.println("Texts = "+$$(".carousel-caption h1").texts().get(0).toString());
-//        System.out.println("Neodymium Localized Texts = ");
-//        System.out.println(Neodymium.localizedText(headline));
-//        $$(".carousel-indicators li").findBy(exactText(position)).click();
-//        jsClickFunction($(".carousel-indicators li:nth-child(1)").shouldHave(exactText("")));
-//        $$(".carousel-caption h1:nth-child(1)").findBy(exactText(Neodymium.localizedText(headline))).shouldBe(visible);
-////        $$(".carousel-caption .btn-primary").findBy(exactText(Neodymium.localizedText("slider.button.1"))).shouldBe(visible);
-//        jsClickFunction($(".carousel-indicators li:nth-child(2)").shouldHave(exactText(""))); //.click();
-//        $$(".carousel-caption h1:nth-child(2)").findBy(exactText(Neodymium.localizedText(headline))).shouldBe(visible);
-////        $$(".carousel-caption .btn-primary").findBy(exactText(Neodymium.localizedText("slider.button.1"))).shouldBe(visible);
-//        jsClickFunction($(".carousel-indicators li:nth-child(3)").shouldHave(exactText("")));//.click();
-//        $$(".carousel-caption h1:nth-child(3)").findBy(exactText(Neodymium.localizedText(headline))).shouldBe(visible);
-//        $$(".carousel-indicators li:nth-child(1)").findBy(exactText("")).click();
-//        $$(".carousel-indicators li:nth-child(2)").findBy(exactText("")).click();
-//        $$(".carousel-indicators li:nth-child(3)").findBy(exactText("")).click();
-//        $$(".carousel-caption h1").findBy(exactText(Neodymium.localizedText(headline))).shouldBe(visible);
-//        $$(".carousel-caption .btn-primary").findBy(exactText(Neodymium.localizedText("slider.button.1"))).shouldBe(visible);
-        $$(".carousel-indicators li[data-slide-to='0']").findBy(exactText("")).click();
-//        $$(".carousel-indicators li").findBy(exactText("")).click();
-//        $$(".carousel-indicators li").findBy(exactText("")).click();
-//        System.out.println(" exact text: "+  $(".item .carousel-caption h1:nth-child(1)").shouldBe(enabled).toString());
-        $$(".carousel-indicators li[data-slide-to='1']").findBy(exactText("")).click();
-//        System.out.println(" exact text: "+  $(".item .carousel-caption h1:nth-child(2)").shouldBe(enabled).toString());
-        $$(".carousel-indicators li[data-slide-to='2']").findBy(exactText("")).click();
-        System.out.println(" exact text: "+  $$(".item .carousel-caption h1").findBy(visible).getOwnText());
+        for (int i = 0; i <position; i++) {
+//            String selectorFirst = ".carousel-indicators li[data-slide-to='";
+//            String selectorFull = selectorFirst.concat(Integer.toString(i)).concat("']");
+            String strHeadlineFull = headline.concat("headline.").concat(Integer.toString(i+1));
+            String strButtonFull = headline.concat("button.").concat(Integer.toString(i+1));
+//            $$(selectorFull).findBy(exactText("")).click();
+            $$(".carousel-indicators li[data-slide-to='".concat(Integer.toString(i)).concat("']")).findBy(exactText("")).click();
+            waitFunction(1);
+            $$(".carousel-inner .item h1").findBy(exactText(Neodymium.localizedText(strHeadlineFull))).shouldBe(visible);
+            $$(".item .btn-primary").findBy(exactText(Neodymium.localizedText(strButtonFull))).shouldBe(visible);
+        }
+
     }
     @Step("validate poster slide")
     public void validatePosterSlide()
     {
-        validatePosterSlide("3", "slider.headline.1");
-        validatePosterSlide("2", "slider.headline.2");
-        validatePosterSlide("1", "slider.headline.3");
+        validatePosterSlide(3, "slider.");
+
     }
     @Then("^The home page should have heading, carousel, services and the company button$")
     @Step("validate the home page")
@@ -145,7 +132,15 @@ public class HomePage extends AbstractPageObject
         $$("#news-section p a").findBy(exactText(Neodymium.localizedText("footer.newsTexts.4"))).shouldBe(visible);
     }
     public void jsClickFunction(WebElement element) {
-        JavascriptExecutor jse = (JavascriptExecutor) WebDriverRunner.getWebDriver(); ;
+        JavascriptExecutor jse = (JavascriptExecutor) WebDriverRunner.getWebDriver();
         jse.executeScript("arguments[0].click()", element);
+    }
+
+    public static void waitFunction(int sec){
+        try {
+            Thread.sleep(sec* 1000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
