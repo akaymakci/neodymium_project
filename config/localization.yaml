@@ -26,8 +26,11 @@ en_US:
       "1": |
         We Test Software.
         Because Quality Matters.
-      "2": We are Salesforce Commerce Cloud Partner.
-      "3": XLT - The Open Source Performance Test Tool.
+      "2":
+        We are 
+        Salesforce Commerce Cloud Partner.
+      "3":
+        XLT - The Open Source Performance Test Tool.
     button:
       "1": Learn More
       "2": Learn More
@@ -50,14 +53,14 @@ en_US:
         title: Blog
   footer:
     address:
-      "1": Jena, Germany Headquarters
-      "2": Cambridge, MA, USA
+      "germany": Jena, Germany Headquarters
+      "usa": Cambridge, MA, USA
     email:
-      "1": kontakt@xceptance.de
-      "2": contact@xceptance.com
+      "germany": kontakt@xceptance.de
+      "usa": contact@xceptance.com
     tel:
-      "1": +49-3641-376300
-      "2": +1-617-225-4335
+      "germany": +49-3641-376300
+      "usa": +1-617-225-4335
     linkTexts:
       "1": About Us
       "2": Contact
