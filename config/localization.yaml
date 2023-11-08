@@ -51,6 +51,16 @@ en_US:
         title: Contact
       "7":
         title: Blog
+    subNavigation:
+      "1":
+        title: Overview
+      "2":
+        title: Salesforce Commerce Cloud
+  company:
+      headline: |
+        Welcome to Xceptance!
+        Get to know us. THIS WAY
+      button: This way
   footer:
     address:
       "germany": Jena, Germany Headquarters
@@ -78,4 +88,9 @@ en_US:
       "2": Donation to Wandlungswelten
       "3": The University Summer Festival
       "4": Xceptance sparks great ideas
+  servicePage:
+    teaser:
+      headline: |
+        Inspecting, Observing,
+        Reporting.
 
