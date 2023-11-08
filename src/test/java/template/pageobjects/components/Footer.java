@@ -1,5 +1,6 @@
 package template.pageobjects.components;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
 
@@ -10,6 +11,12 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class Footer extends AbstractComponent{
     private SelenideElement footer = $("footer");
+    private ElementsCollection addressesElementCollection = $$("#addresses h3");
+    private ElementsCollection emailElementCollection = $$("#addresses .email");
+    private ElementsCollection telefonElementCollection = $$("#addresses .tel");
+    private ElementsCollection footerInformationElementCollection = $$("#footer-information div ul li a");
+    private ElementsCollection newsElementCollection = $$("#news-section p a");
+
     @Override
     public void isComponentAvailable() {
         footer.should(exist);
@@ -33,26 +40,26 @@ public class Footer extends AbstractComponent{
         $$("#news-section p a").shouldHave(sizeGreaterThan(0));
 
         // validate footer texts
-        $$("#addresses h3").findBy(exactText(Neodymium.localizedText("footer.address.germany"))).shouldBe(visible);
-        $$("#addresses h3").findBy(exactText(Neodymium.localizedText("footer.address.usa"))).shouldBe(visible);
-        $$("#addresses .email").findBy(exactText(Neodymium.localizedText("footer.email.germany"))).shouldBe(visible);
-        $$("#addresses .email").findBy(exactText(Neodymium.localizedText("footer.email.usa"))).shouldBe(visible);
-        $$("#addresses .tel").findBy(exactText(Neodymium.localizedText("footer.tel.germany"))).shouldBe(visible);
-        $$("#addresses .tel").findBy(exactText(Neodymium.localizedText("footer.tel.usa"))).shouldBe(visible);
-        $$("#footer-information div ul li a").findBy(exactText(Neodymium.localizedText("footer.linkTexts.1"))).shouldBe(visible);
-        $$("#footer-information div ul li a").findBy(exactText(Neodymium.localizedText("footer.linkTexts.2"))).shouldBe(visible);
-        $$("#footer-information div ul li a").findBy(exactText(Neodymium.localizedText("footer.linkTexts.3"))).shouldBe(visible);
-        $$("#footer-information div ul li a").findBy(exactText(Neodymium.localizedText("footer.linkTexts.4"))).shouldBe(visible);
-        $$("#footer-information div ul li a").findBy(exactText(Neodymium.localizedText("footer.linkTexts.5"))).shouldBe(visible);
-        $$("#footer-information div ul li a").findBy(exactText(Neodymium.localizedText("footer.linkTexts.6"))).shouldBe(visible);
-        $$("#footer-information div ul li a").findBy(exactText(Neodymium.localizedText("footer.linkTexts.7"))).shouldBe(visible);
-        $$("#footer-information div ul li a").findBy(exactText(Neodymium.localizedText("footer.linkTexts.8"))).shouldBe(visible);
-        $$("#footer-information div ul li a").findBy(exactText(Neodymium.localizedText("footer.linkTexts.9"))).shouldBe(visible);
-        $$("#footer-information div ul li a").findBy(exactText(Neodymium.localizedText("footer.linkTexts.10"))).shouldBe(visible);
-        $$("#footer-information div ul li a").findBy(exactText(Neodymium.localizedText("footer.linkTexts.11"))).shouldBe(visible);
-        $$("#news-section h3").findBy(exactText(Neodymium.localizedText("footer.newsTexts.1"))).shouldBe(visible);
-        $$("#news-section p a").findBy(exactText(Neodymium.localizedText("footer.newsTexts.2"))).shouldBe(visible);
-        $$("#news-section p a").findBy(exactText(Neodymium.localizedText("footer.newsTexts.3"))).shouldBe(visible);
-        $$("#news-section p a").findBy(exactText(Neodymium.localizedText("footer.newsTexts.4"))).shouldBe(visible);
+        addressesElementCollection.findBy(exactText(Neodymium.localizedText("footer.address.germany"))).shouldBe(visible);
+        addressesElementCollection.findBy(exactText(Neodymium.localizedText("footer.address.usa"))).shouldBe(visible);
+        emailElementCollection.findBy(exactText(Neodymium.localizedText("footer.email.germany"))).shouldBe(visible);
+        emailElementCollection.findBy(exactText(Neodymium.localizedText("footer.email.usa"))).shouldBe(visible);
+        telefonElementCollection.findBy(exactText(Neodymium.localizedText("footer.tel.germany"))).shouldBe(visible);
+        telefonElementCollection.findBy(exactText(Neodymium.localizedText("footer.tel.usa"))).shouldBe(visible);
+        footerInformationElementCollection.findBy(exactText(Neodymium.localizedText("footer.linkTexts.aboutUs"))).shouldBe(visible);
+        footerInformationElementCollection.findBy(exactText(Neodymium.localizedText("footer.linkTexts.contact"))).shouldBe(visible);
+        footerInformationElementCollection.findBy(exactText(Neodymium.localizedText("footer.linkTexts.services"))).shouldBe(visible);
+        footerInformationElementCollection.findBy(exactText(Neodymium.localizedText("footer.linkTexts.xlt"))).shouldBe(visible);
+        footerInformationElementCollection.findBy(exactText(Neodymium.localizedText("footer.linkTexts.references"))).shouldBe(visible);
+        footerInformationElementCollection.findBy(exactText(Neodymium.localizedText("footer.linkTexts.privacy"))).shouldBe(visible);
+        footerInformationElementCollection.findBy(exactText(Neodymium.localizedText("footer.linkTexts.blog"))).shouldBe(visible);
+        footerInformationElementCollection.findBy(exactText(Neodymium.localizedText("footer.linkTexts.xing"))).shouldBe(visible);
+        footerInformationElementCollection.findBy(exactText(Neodymium.localizedText("footer.linkTexts.linkedin"))).shouldBe(visible);
+        footerInformationElementCollection.findBy(exactText(Neodymium.localizedText("footer.linkTexts.twitter"))).shouldBe(visible);
+        footerInformationElementCollection.findBy(exactText(Neodymium.localizedText("footer.linkTexts.github"))).shouldBe(visible);
+        $$("#news-section h3").findBy(exactText(Neodymium.localizedText("footer.newsTexts.latestNews"))).shouldBe(visible);
+        newsElementCollection.findBy(exactText(Neodymium.localizedText("footer.newsTexts.latestNews1"))).shouldBe(visible);
+        newsElementCollection.findBy(exactText(Neodymium.localizedText("footer.newsTexts.latestNews2"))).shouldBe(visible);
+        newsElementCollection.findBy(exactText(Neodymium.localizedText("footer.newsTexts.latestNews3"))).shouldBe(visible);
     }
 }

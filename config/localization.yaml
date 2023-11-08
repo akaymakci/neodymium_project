@@ -37,19 +37,19 @@ en_US:
       "3": Download
   header:
     topNavigation:
-      "1":
+      "services":
         title: Services
-      "2":
+      "xlt":
         title: XLT
-      "3":
+      "company":
         title: Company
-      "4":
+      "news":
         title: News
-      "5":
+      "careers":
         title: Careers
-      "6":
+      "contact":
         title: Contact
-      "7":
+      "blog":
         title: Blog
     subNavigation:
       "1":
@@ -72,22 +72,22 @@ en_US:
       "germany": +49-3641-376300
       "usa": +1-617-225-4335
     linkTexts:
-      "1": About Us
-      "2": Contact
-      "3": Services
-      "4": XLT
-      "5": References
-      "6": Privacy
-      "7": Blog
-      "8": Xing
-      "9": LinkedIn
-      "10": Twitter
-      "11": GitHub
+      "aboutUs": About Us
+      "contact": Contact
+      "services": Services
+      "xlt": XLT
+      "references": References
+      "privacy": Privacy
+      "blog": Blog
+      "xing": Xing
+      "linkedin": LinkedIn
+      "twitter": Twitter
+      "github": GitHub
     newsTexts:
-      "1": Latest News
-      "2": Donation to Wandlungswelten
-      "3": The University Summer Festival
-      "4": Xceptance sparks great ideas
+      "latestNews": Latest News
+      "latestNews1": Donation to Wandlungswelten
+      "latestNews2": The University Summer Festival
+      "latestNews3": Xceptance sparks great ideas
   servicePage:
     teaser:
       headline: |

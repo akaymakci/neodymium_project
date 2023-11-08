@@ -4,21 +4,23 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
+import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Step;
 
 public class HomePage extends AbstractPageObject
 {
+    private SelenideElement homePageElement = $(".homepage");
     @Override
     @Step("ensure this is a homepage")
     public HomePage isExpectedPage()
     {
-        $("#service-areas").should(exist);
+        homePageElement.should(exist);
         return this;
     }
     @Step("validate poster slide")
-    public void validatePosterSlide(int position, String headline)
+    private void validatePosterSlide(int position, String headline)
     {
         // TODO - improve
         for (int i = 0; i <position; i++) {
