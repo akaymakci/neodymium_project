@@ -1,6 +1,7 @@
 package template.pageobjects.pages;
 
 import template.pageobjects.components.Footer;
+import template.pageobjects.components.SubNavigation;
 import template.pageobjects.components.Title;
 import template.pageobjects.components.TopNavigation;
 
@@ -12,6 +13,7 @@ public abstract class AbstractPageObject
     public Title title = new Title();
 
     public TopNavigation topNavigation = new TopNavigation();
+    public SubNavigation subNavigation = new SubNavigation();
     public Footer footer = new Footer();
 
     public void validateStructure()

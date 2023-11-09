@@ -22,9 +22,11 @@ public class ServicePageTest extends AbstractTest {
 //        homePage.validateStructure();
 
         // go to service page
-        var servicePage = homePage.topNavigation.openServicePage();
-        servicePage.validateStructure();
+        var servicePageOverview = homePage.topNavigation.openServicePage();
+        servicePageOverview.validateStructure();
 
+        var salesForceCommerceCloudPage = homePage.subNavigation.clickSubNavigation("header.topNavigation.subNavigation.services.salesforce.title");
+        salesForceCommerceCloudPage.validateStructure();
 
     }
 

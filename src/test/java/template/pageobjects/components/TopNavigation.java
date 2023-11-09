@@ -15,12 +15,13 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class TopNavigation extends AbstractComponent {
 
-    private SelenideElement categoryMenu = $(".navbar-header");
-    private ElementsCollection caterogiesElementCollection = $$("#navigation .navbar-header ul.nav > li > a");
-    private ElementsCollection subCaterogiesElementCollection = $$("#sub-navigation .navbar a");
+    private SelenideElement topNav = $(".navbar-header");
+    private ElementsCollection categoriesElementCollection = $$("#navigation .navbar-header ul.nav > li > a");
+
+
     @Override
     public void isComponentAvailable() {
-        categoryMenu.should(exist);
+        topNav.should(exist);
     }
 
     @Step("click on the top category '{topCategory}'")
@@ -32,6 +33,7 @@ public class TopNavigation extends AbstractComponent {
         clickCategory(Neodymium.localizedText("header.topNavigation.services.title"));
         return  new ServicePage().isExpectedPage();
     }
+
     public CareerPage openCareerPage(){
         clickCategory(Neodymium.localizedText("header.topNavigation.careers.title"));
         return  new CareerPage().isExpectedPage();
@@ -50,25 +52,16 @@ public class TopNavigation extends AbstractComponent {
         $$("#navigation .navbar-header ul.nav > li > a").shouldHave(sizeGreaterThan(0));
 
         // validate navigation texts
-        caterogiesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.services.title"))).shouldBe(visible);
-        caterogiesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.xlt.title"))).shouldBe(visible);
-        caterogiesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.news.title"))).shouldBe(visible);
-        caterogiesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.company.title"))).shouldBe(visible);
-        caterogiesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.careers.title"))).shouldBe(visible);
-        caterogiesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.contact.title"))).shouldBe(visible);
-        caterogiesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.blog.title"))).shouldBe(visible);
+        categoriesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.services.title"))).shouldBe(visible);
+        categoriesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.xlt.title"))).shouldBe(visible);
+        categoriesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.news.title"))).shouldBe(visible);
+        categoriesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.company.title"))).shouldBe(visible);
+        categoriesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.careers.title"))).shouldBe(visible);
+        categoriesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.contact.title"))).shouldBe(visible);
+        categoriesElementCollection.findBy(exactText(Neodymium.localizedText("header.topNavigation.blog.title"))).shouldBe(visible);
 
 
     }
-    @Step("validate sub category ")
-    public void validateSubCategory()
-    {
-        // Asserts there are subcategories in the nav bar.
-        subCaterogiesElementCollection.shouldHave(sizeGreaterThan(0));
 
-        // validate subcategory texts
-        subCaterogiesElementCollection.findBy(exactText(Neodymium.localizedText("header.subNavigation.1.title"))).shouldBe(visible);
-        subCaterogiesElementCollection.findBy(exactText(Neodymium.localizedText("header.subNavigation.2.title"))).shouldBe(visible);
-    }
 
 }

@@ -39,11 +39,11 @@ public class HomePage extends AbstractPageObject
         validatePosterSlide(3, "slider.");
 
     }
-    @Then("^The home page should have heading, carousel, services and the company button$")
+
     @Step("validate the home page")
     public void validateStructure()
     {
-        // Annoying privacy message close
+//         Annoying privacy message close
         $("#privacy-message .close").click();
 
         // Calls validateStructure of the parent class to validate basic things

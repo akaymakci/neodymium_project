@@ -9,7 +9,9 @@ import static com.codeborne.selenide.Condition.*;
 
 public class CareerPage extends AbstractPageObject {
 
-    private SelenideElement jobsElement = $(".jobs");
+    public SelenideElement jobsElement = $(".jobs");
+
+    @Step("ensure this is a Career Page")
     @Override
     public CareerPage isExpectedPage() {
         super.isExpectedPage();
@@ -17,7 +19,7 @@ public class CareerPage extends AbstractPageObject {
         return this;
     }
 
-    @Then("^The home page should have heading, carousel, services and the company button$")
+
     @Step("validate the career page")
     public void validateStructure()
     {

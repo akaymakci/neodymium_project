@@ -51,11 +51,23 @@ en_US:
         title: Contact
       "blog":
         title: Blog
-    subNavigation:
-      "1":
-        title: Overview
-      "2":
-        title: Salesforce Commerce Cloud
+      "subNavigation":
+        "services":
+          "overview":
+            title: Overview
+          "salesforce":
+            title : Salesforce Commerce Cloud
+        "xlt":
+          "overview":
+            title : Overview
+          "features" :
+            title : Feature
+          "documentation" :
+            title : Documentation
+          "licenseUndSupport" :
+            title : License & Support
+          "download" :
+            title : Download
   company:
       headline: |
         Welcome to Xceptance!
@@ -89,8 +101,39 @@ en_US:
       "latestNews2": The University Summer Festival
       "latestNews3": Xceptance sparks great ideas
   servicePage:
-    teaser:
-      headline: |
-        Inspecting, Observing,
-        Reporting.
-
+    overview:
+      teaser:
+        headline: |
+          Inspecting, Observing,
+          Reporting.
+      functionalTesting:
+        "1" :
+          title : Manual Testing
+        "2" :
+          title: Automated Testing
+      performanceTesting:
+        "1" :
+          title : Load & Performance Testing
+          subHeading :
+            "1" :
+              title: Server-Side Performance
+            "2" :
+              title: Client-Side Performance
+      testGuidance:
+        "1" :
+          title : Test Guidance & Support
+    salesforce:
+      teaser:
+        headline: >
+          15 Years of Quality Assurance Support
+          for Salesforce Commerce Cloud.
+        link: http://www.demandware.com/
+        linkTitle: Visit Salesforce Commerce Cloud
+      intro:
+        headline: Partnering For Success
+        eCommerce: E-Commerce Testing
+        weKnow: We know Salesforce Commerce Cloud
+        functionalTesting: Functional Testing
+        agileTesting: Agile Testing of Individual Features
+        loadAndPerformance: Load and Performance Testing with XLT
+        testAutomation: Test Automation
