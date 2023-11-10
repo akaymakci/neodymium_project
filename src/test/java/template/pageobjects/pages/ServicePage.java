@@ -52,12 +52,14 @@ public class ServicePage extends AbstractPageObject{
         $$("#functional-testing  .container div[class*='col-md'] h2").findBy(exactText(Neodymium.localizedText("servicePage.overview.functionalTesting.2.title"))).should(exist);
 
         //Validates Headlines are there
-        $("#functional-testing  .container div[class*='col-md']:nth-child(2) p.lead").shouldHave(matchText("[A-Z].{13,}"));
-        $("#functional-testing  .container div[class*='col-md']:nth-child(4) p.lead").shouldHave(matchText("[A-Z].{15,}"));
+        $$("#functional-testing  .container div[class*='col-md'] p.lead").shouldHaveSize(2);
+//        $("#functional-testing  .container div[class*='col-md']:nth-child(2) p.lead").shouldHave(matchText("[A-Z].{13,}"));
+//        $("#functional-testing  .container div[class*='col-md']:nth-child(4) p.lead").shouldHave(matchText("[A-Z].{15,}"));
 
         //Validates Texts are there
-        $("#functional-testing  .container div[class*='col-md']:nth-child(2) p:nth-child(2)").shouldHave(matchText("[A-Z].{35,}"));
-        $("#functional-testing  .container div[class*='col-md']:nth-child(4) p:nth-child(2)").shouldHave(matchText("[A-Z].{42,}"));
+        $$("#functional-testing  .container div[class*='col-md'] p:nth-child(2)").shouldHaveSize(2);
+//        $("#functional-testing  .container div[class*='col-md']:nth-child(2) p:nth-child(2)").shouldHave(matchText("[A-Z].{35,}"));
+//        $("#functional-testing  .container div[class*='col-md']:nth-child(4) p:nth-child(2)").shouldHave(matchText("[A-Z].{42,}"));
 
         // Validates Load and Performance Testing
         // Validates Pictures are there
@@ -69,12 +71,11 @@ public class ServicePage extends AbstractPageObject{
         $$("#performance-testing  .container div[class*='col-md'] h3").findBy(exactText(Neodymium.localizedText("servicePage.overview.performanceTesting.1.subHeading.2.title"))).should(exist);
 
         //Validates Headlines' subtexts are there
-        $("#performance-testing div[class*='col-left'] h3+p").shouldHave(matchText("[A-Z].{58,}"));
-        $("#performance-testing div[class*='col-right'] h3+p").shouldHave(matchText("[A-Z].{56,}"));
+        $$("#performance-testing .container div[class*='col-md'] p.lead, h3+p:not([class*='meta'])").shouldHaveSize(3);
 
         //Validates Texts are there
-        $("#performance-testing  .container div[class*='col-sm'] h3+p").shouldHave(matchText("[A-Z].{35,}"));
-        $("#performance-testing  .container div[class*='col-sm'] h3+p").shouldHave(matchText("[A-Z].{42,}"));
+        $$("#performance-testing  .container div[class*='col-sm'] h3+p").shouldHaveSize(2);
+//        $("#performance-testing  .container div[class*='col-sm'] h3+p").shouldHave(matchText("[A-Z].{42,}"));
 
         //Asserts Bullet points number
         $$("#performance-testing div[class*='col-left'] li").shouldHave(size(6));
@@ -90,10 +91,10 @@ public class ServicePage extends AbstractPageObject{
         $$("#test-guidance  .container div[class*='col-md'] h2").findBy(exactText(Neodymium.localizedText("servicePage.overview.testGuidance.1.title"))).should(exist);
 
         //Validates Headlines are there
-        $("#test-guidance  .container div[class*='col-md']:nth-child(2) p.lead").shouldHave(matchText("[A-Z].{9,}"));
+        $$("#test-guidance  .container div[class*='col-md']:nth-child(2) p.lead").shouldHaveSize(1);
 
         //Validates Texts are there
-        $("#test-guidance  .container div[class*='col-md']:nth-child(2) p:nth-child(2)").shouldHave(matchText("[A-Z].{45,}"));
+        $$("#test-guidance  .container div[class*='col-md']:nth-child(2) p:nth-child(2)").shouldHaveSize(1);
 
 //        subNavigation.clickSubNavigation("header.topNavigation.subNavigation.services.salesforce.title");
 

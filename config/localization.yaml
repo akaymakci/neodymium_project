@@ -127,8 +127,8 @@ en_US:
         headline: >
           15 Years of Quality Assurance Support
           for Salesforce Commerce Cloud.
-        link: http://www.demandware.com/
-        linkTitle: Visit Salesforce Commerce Cloud
+#        link: http://www.demandware.com/
+#        linkTitle: Visit Salesforce Commerce Cloud
       intro:
         headline: Partnering For Success
         eCommerce: E-Commerce Testing
