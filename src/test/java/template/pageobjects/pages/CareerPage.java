@@ -12,13 +12,10 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class CareerPage extends AbstractPageObject {
 
-    public SelenideElement jobsElement = $(".jobs");
-    public ElementsCollection headlinesElementCollection = $$("#jobs-overview h1, h3:not([id=footer-information] h3)");
-//    public ElementsCollection locationsElementCollection = $$()
-
     @Step("ensure this is a Career Page")
     @Override
     public CareerPage isExpectedPage() {
+        var jobsElement = $(".jobs");
         super.isExpectedPage();
         jobsElement.should(exist);
         return this;
@@ -28,31 +25,64 @@ public class CareerPage extends AbstractPageObject {
     @Step("validate the career page")
     public void validateStructure()
     {
+        var jobsOverviewContainer = $("#jobs-overview");
+        var jobsBackground = $("#jobs-background");
+
         // Calls validateStructure of the parent class to validate basic things
         super.validateStructure();
 
         // validates teaser image is there
         $(".teaser-image").shouldBe(visible);
-
         // validates headlines are there
-        $$("#jobs-overview h1, h3:not([id=footer-information] h3)").shouldHaveSize(9);
-
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").shouldHaveSize(13);
         // Asserts headlines
-        headlinesElementCollection.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.weAreHiring"))).should(exist);
-        headlinesElementCollection.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.startUp"))).should(exist);
-        headlinesElementCollection.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.workLife"))).should(exist);
-        headlinesElementCollection.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.commitment"))).should(exist);
-        headlinesElementCollection.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.careerDevelopment"))).should(exist);
-        headlinesElementCollection.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.international"))).should(exist);
-        headlinesElementCollection.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.roomForCreativity"))).should(exist);
-        headlinesElementCollection.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.greatLocations"))).should(exist);
-        headlinesElementCollection.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.valuableInternships"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.weAreHiring"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.startUp"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.workLife"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.commitment"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.careerDevelopment"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.international"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.roomForCreativity"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.greatLocations"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.valuableInternships"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.openPositions"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.cambridge"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.jena"))).should(exist);
+        jobsOverviewContainer.findAll("h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.erfurt"))).should(exist);
 
         // Validates Headlines' subtexts are there
-        $$("#jobs-overview p:not([class*='tab-content'] p, [id='jobs-background'] p)").shouldHaveSize(9);
+        jobsOverviewContainer.findAll("[class*='col-md'] p[class='lead'], p.explanation").shouldHaveSize(9);
 
         // Validates Headlines icons are there
-        $$("#jobs-overview h3 i").shouldHaveSize(8);
+        jobsOverviewContainer.findAll("h3 i").shouldHaveSize(8);
+
+        // Validates Listings are there
+        jobsOverviewContainer.findAll("p.locations i").shouldHaveSize(3);
+        jobsOverviewContainer.findAll("ul li").shouldHaveSize(9);
+        jobsOverviewContainer.findAll("ul li a").shouldHaveSize(9);
+
+        // Asserts Job Links
+//        System.out.println(jobsOverviewContainer.find("ul li a").getAttribute("href"));
+        jobsOverviewContainer.findAll("ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.cambridge.qaEngineerLink"))).should(exist);
+        jobsOverviewContainer.findAll("ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.lastUndPerformanceTesterLink"))).should(exist);
+        jobsOverviewContainer.findAll("ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.javaEntwicklerLink"))).should(exist);
+        jobsOverviewContainer.findAll("ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerMarketingExperteLink"))).should(exist);
+        jobsOverviewContainer.findAll("ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerAutorLink"))).should(exist);
+        jobsOverviewContainer.findAll("ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerTesterLink"))).should(exist);
+        jobsOverviewContainer.findAll("ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.spezialistFürTestAutomatisierungLink"))).should(exist);
+        jobsOverviewContainer.findAll("ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.erfurt.technischerTesterLink"))).should(exist);
+        jobsOverviewContainer.findAll("ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.erfurt.lastUndPerformanceTesterLink"))).should(exist);
+
+        // Validates Jobs Background is there?
+        jobsBackground.should(exist);
+
+        // Asserts the text on the Job Background
+        jobsBackground.findAll("p").findBy(exactText(Neodymium.localizedText("careerPage.jobsBackground.title"))).should(exist);
+
+
+
+
+
 
 
 

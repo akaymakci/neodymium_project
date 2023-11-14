@@ -8,6 +8,7 @@ import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
 import template.flows.OpenPageFlows.*;
 import template.pageobjects.components.TopNavigation;
+import template.pageobjects.pages.ServicePage;
 
 
 public class ServicePageTest extends AbstractTest {
@@ -25,8 +26,10 @@ public class ServicePageTest extends AbstractTest {
         var servicePageOverview = homePage.topNavigation.openServicePage();
         servicePageOverview.validateStructure();
 
-        var salesForceCommerceCloudPage = homePage.subNavigation.clickSubNavigation("header.topNavigation.subNavigation.services.salesforce.title");
-        salesForceCommerceCloudPage.validateStructure();
+        // go to Sales Force Commerce Cloud Page Category
+        servicePageOverview.goToSalesForceCommerceCloudPage().validateStructure();
+
+
 
     }
 

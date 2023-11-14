@@ -37,37 +37,23 @@ en_US:
       "3": Download
   header:
     topNavigation:
-      "services":
-        title: Services
-      "xlt":
-        title: XLT
-      "company":
-        title: Company
-      "news":
-        title: News
-      "careers":
-        title: Careers
-      "contact":
-        title: Contact
-      "blog":
-        title: Blog
+      "services": Services
+      "xlt": XLT
+      "company": Company
+      "news": News
+      "careers": Careers
+      "contact": Contact
+      "blog": Blog
       "subNavigation":
-        "services":
-          "overview":
-            title: Overview
-          "salesforce":
-            title : Salesforce Commerce Cloud
-        "xlt":
-          "overview":
-            title : Overview
-          "features" :
-            title : Feature
-          "documentation" :
-            title : Documentation
-          "licenseUndSupport" :
-            title : License & Support
-          "download" :
-            title : Download
+        services:
+          "overview": Overview
+          "salesforce" : Salesforce Commerce Cloud
+        xlt:
+          "overview" : Overview
+          "features" : Feature
+          "documentation" : Documentation
+          "licenseUndSupport" : License & Support
+          "download" : Download
   company:
       headline: |
         Welcome to Xceptance!
@@ -107,21 +93,14 @@ en_US:
           Inspecting, Observing,
           Reporting.
       functionalTesting:
-        "1" :
-          title : Manual Testing
-        "2" :
-          title: Automated Testing
+        manualTesting : Manual Testing
+        automatedTesting : Automated Testing
       performanceTesting:
-        "1" :
-          title : Load & Performance Testing
-          subHeading :
-            "1" :
-              title: Server-Side Performance
-            "2" :
-              title: Client-Side Performance
-      testGuidance:
-        "1" :
-          title : Test Guidance & Support
+        loadUndPerformanceTesting : Load & Performance Testing
+        subHeader :
+          serverSidePerformanceTesting : Server-Side Performance
+          clientSidePerformanceTesting : Client-Side Performance
+      testGuidance: Test Guidance & Support
     salesforce:
       teaser:
         headline: >
@@ -149,8 +128,25 @@ en_US:
         roomForCreativity: Room for Creativity
         greatLocations: Great Locations
         valuableInternships: Valuable Internships
-    openPositions:
-      locations:
+        openPositions: Open Positions
         cambridge: in Cambridge, MA
         jena: in Jena, Germany
         erfurt: in Erfurt, Germany
+    openPositions:
+      locations:
+        cambridge:
+          qaEngineerLink: https://www.xceptance.com/en/jobs/cambridge/006-qa-engineer-performance-and-automation.html
+        jena:
+          lastUndPerformanceTesterLink: https://www.xceptance.com/en/jobs/jena/002-last-und-performancetester.html
+          javaEntwicklerLink: https://www.xceptance.com/en/jobs/jena/008-java-entwickler.html
+          technischerMarketingExperteLink: https://www.xceptance.com/en/jobs/jena/010-technisches-marketing.html
+          technischerAutorLink: https://www.xceptance.com/en/jobs/jena/009-technischer-autor.html
+          technischerTesterLink: https://www.xceptance.com/en/jobs/jena/004-technischer-tester.html
+          spezialistFürTestAutomatisierungLink: https://www.xceptance.com/en/jobs/jena/003-spezialist-testautomatisierung.html
+        erfurt:
+          technischerTesterLink: https://www.xceptance.com/en/jobs/erfurt/004-technischer-tester.html
+          lastUndPerformanceTesterLink: https://www.xceptance.com/en/jobs/erfurt/002-last-und-performancetester.html
+    jobsBackground:
+      title : |
+        We look forward to
+        welcoming you at Xceptance!
