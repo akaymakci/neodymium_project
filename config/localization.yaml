@@ -135,17 +135,17 @@ en_US:
     openPositions:
       locations:
         cambridge:
-          qaEngineerLink: https://www.xceptance.com/en/jobs/cambridge/006-qa-engineer-performance-and-automation.html
+          qaEngineerLink: "QA Engineer for Performance and Automated Testing"
         jena:
-          lastUndPerformanceTesterLink: https://www.xceptance.com/en/jobs/jena/002-last-und-performancetester.html
-          javaEntwicklerLink: https://www.xceptance.com/en/jobs/jena/008-java-entwickler.html
-          technischerMarketingExperteLink: https://www.xceptance.com/en/jobs/jena/010-technisches-marketing.html
-          technischerAutorLink: https://www.xceptance.com/en/jobs/jena/009-technischer-autor.html
-          technischerTesterLink: https://www.xceptance.com/en/jobs/jena/004-technischer-tester.html
-          spezialistFürTestAutomatisierungLink: https://www.xceptance.com/en/jobs/jena/003-spezialist-testautomatisierung.html
+          lastUndPerformanceTesterLink: "Last- und Performancetester (m/w/d/*)"
+          javaEntwicklerLink: "Java-Entwickler (m/w/d/*)"
+          technischerMarketingExperteLink: "Technischer Marketingexperte (m/w/d/*)"
+          technischerAutorLink: "Technischer Autor (m/w/d/*)"
+          technischerTesterLink: "Technischer Tester (m/w/d/*)"
+          spezialistFürTestAutomatisierungLink: "Spezialist für Testautomatisierung (m/w/d/*)"
         erfurt:
-          technischerTesterLink: https://www.xceptance.com/en/jobs/erfurt/004-technischer-tester.html
-          lastUndPerformanceTesterLink: https://www.xceptance.com/en/jobs/erfurt/002-last-und-performancetester.html
+          technischerTesterLink: "Technischer Tester (m/w/d/*)"
+          lastUndPerformanceTesterLink: "Last- und Performancetester (m/w/d/*)"
     jobsBackground:
       title : |
         We look forward to
