@@ -33,47 +33,63 @@ public class CareerPage extends AbstractPageObject {
 
         // validates teaser image is there
         $(".teaser-image").shouldBe(visible);
-
+        var jobsOverviewContainerCaptions = $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations");
         // validates headlines are there
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").shouldHaveSize(13);
+        jobsOverviewContainerCaptions.shouldHaveSize(13);
 
         // Asserts headlines
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.weAreHiring"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.startUp"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.workLife"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.commitment"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.careerDevelopment"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.international"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.roomForCreativity"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.greatLocations"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.valuableInternships"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.openPositions"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.cambridge"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.jena"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1, div.caption h2, div.caption h3, h2, p.locations").findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.erfurt"))).shouldBe(visible);
+        var jobsOverviewH1 = $$(jobsOverviewContainer.getSearchCriteria() +" h1");
+        var jobsOverviewH2 = $$(jobsOverviewContainer.getSearchCriteria() +" h2");
+        var jobsOverviewDivCaptionH3 = $$(jobsOverviewContainer.getSearchCriteria() +" div.caption h3");
+        var jobsOverviewPLocations = $$(jobsOverviewContainer.getSearchCriteria() +" p.locations");
+
+        jobsOverviewH1.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.weAreHiring"))).shouldBe(visible);
+        jobsOverviewDivCaptionH3.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.startUp"))).shouldBe(visible);
+        jobsOverviewDivCaptionH3.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.workLife"))).shouldBe(visible);
+        jobsOverviewDivCaptionH3.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.commitment"))).shouldBe(visible);
+        jobsOverviewDivCaptionH3.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.careerDevelopment"))).shouldBe(visible);
+        jobsOverviewDivCaptionH3.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.international"))).shouldBe(visible);
+        jobsOverviewDivCaptionH3.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.roomForCreativity"))).shouldBe(visible);
+        jobsOverviewDivCaptionH3.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.greatLocations"))).shouldBe(visible);
+        jobsOverviewDivCaptionH3.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.valuableInternships"))).shouldBe(visible);
+        jobsOverviewH2.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.openPositions"))).shouldBe(visible);
+        jobsOverviewPLocations.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.cambridge"))).shouldBe(visible);
+        jobsOverviewPLocations.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.jena"))).shouldBe(visible);
+        jobsOverviewPLocations.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.erfurt"))).shouldBe(visible);
 
         // Validates Headlines' subtexts are there
-        $$(jobsOverviewContainer.getSearchCriteria() +" h1+p.lead, p.explanation").shouldHaveSize(9);
+        var jobsOverviewH1PLead = $$(jobsOverviewContainer.getSearchCriteria() +" h1+p.lead");
+        var jobsOverviewPExplanation = $$(jobsOverviewContainer.getSearchCriteria() +" p.explanation");
+        jobsOverviewH1PLead.shouldHaveSize(1);
+        jobsOverviewPExplanation.shouldHaveSize(8);
 
         // Validates Headlines icons are there
-        $$(jobsOverviewContainer.getSearchCriteria() +" h3 i").shouldHaveSize(8);
+        var jobsOverviewH3I = $$(jobsOverviewContainer.getSearchCriteria() +" h3 i");
+        jobsOverviewH3I.shouldHaveSize(8);
 
         // Validates Listings are there
-        $$(jobsOverviewContainer.getSearchCriteria() +" p.locations i").shouldHaveSize(3);
-        $$(jobsOverviewContainer.getSearchCriteria() +" ul li").shouldHaveSize(9);
-        $$(jobsOverviewContainer.getSearchCriteria() +" ul li a").shouldHaveSize(9);
+        var jobsOverviewPLocationsI = $$(jobsOverviewContainer.getSearchCriteria() +" p.locations i");
+        jobsOverviewPLocationsI.shouldHaveSize(3);
+        var jobsOverviewUlLi = $$(jobsOverviewContainer.getSearchCriteria() +" ul li");
+        jobsOverviewUlLi.shouldHaveSize(9);
+        var jobsOverviewUlLiA = $$(jobsOverviewContainer.getSearchCriteria() +" ul li a");
+        jobsOverviewUlLiA.shouldHaveSize(9);
 
         // Asserts Job Links
 //        System.out.println(jobsOverviewContainer.find("ul li a").getAttribute("href"));
-        $$(jobsOverviewContainer.getSearchCriteria() +" ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.cambridge.qaEngineerLink"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.lastUndPerformanceTesterLink"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.javaEntwicklerLink"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerMarketingExperteLink"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerAutorLink"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerTesterLink"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.spezialistFürTestAutomatisierungLink"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.erfurt.technischerTesterLink"))).shouldBe(visible);
-        $$(jobsOverviewContainer.getSearchCriteria() +" ul li a").findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.erfurt.lastUndPerformanceTesterLink"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.cambridge.qaEngineerLink"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.lastUndPerformanceTesterLink"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.javaEntwicklerLink"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerMarketingExperteLink"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerAutorLink"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerTesterLink"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.jena.spezialistFürTestAutomatisierungLink"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.erfurt.technischerTesterLink"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(attribute("href",Neodymium.localizedText("careerPage.openPositions.locations.erfurt.lastUndPerformanceTesterLink"))).shouldBe(visible);
+
+
+        System.out.println(jobsOverviewUlLiA);
+
 
         // Validates Jobs Background is there?
         jobsBackground.shouldBe(visible);
