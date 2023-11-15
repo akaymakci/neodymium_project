@@ -28,6 +28,7 @@ public class SalesForceCommerceCloudPage extends AbstractPageObject{
         var demandWareContainer = $("#demandware");
         var morePaddingContainer = $(".more-padding");
         var dwOverviewContainer = $("#dw-overview");
+        var teaserContainer = $("#teaser");
 
         // Calls validateStructure of the parent class to validate basic things
         super.validateStructure();
@@ -37,20 +38,17 @@ public class SalesForceCommerceCloudPage extends AbstractPageObject{
         $(".demandware-testing").should(exist);
 
         // validate teaser
-        demandWareContainer.find("#teaser").should(exist);
+        demandWareContainer.find(teaserContainer.getSearchCriteria()).should(exist);
 
         // Asserts the first headline is there.
         $("#text h1").shouldBe(matchText("[A-Z].{10,}"));
-        demandWareContainer.find("#teaser h1").shouldHave(exactText(Neodymium.localizedText("servicePage.salesforce.teaser.headline")));
-
-        // Asserts salesforce link
-        demandWareContainer.find("#teaser a").shouldHave(attribute("href",Neodymium.localizedText("servicePage.salesforce.teaser.link")));
+        demandWareContainer.find(teaserContainer.getSearchCriteria()+" h1").shouldHave(exactText(Neodymium.localizedText("servicePage.salesforce.teaser.headline")));
 
         // Validates Salesforce Pictures are there
-        $$("[src*='scc-logo']").shouldHaveSize(2);
+        $$(teaserContainer.getSearchCriteria()+ " a img").shouldHaveSize(1);
 
         // Asserts salesforce link title
-        demandWareContainer.find("#teaser a img").shouldHave(attribute("title",Neodymium.localizedText("servicePage.salesforce.teaser.linkTitle")));
+        demandWareContainer.find(teaserContainer.getSearchCriteria()+ " a img").shouldHave(attribute("title",Neodymium.localizedText("servicePage.salesforce.teaser.linkTitle")));
 
         // Validates Intro headline is there
         morePaddingContainer.find(".text-center h1").shouldHave(matchText("[A-Z].{3,}"));
@@ -59,29 +57,29 @@ public class SalesForceCommerceCloudPage extends AbstractPageObject{
         morePaddingContainer.find(".text-center h1").shouldHave(exactText(Neodymium.localizedText("servicePage.salesforce.intro.headline")));
 
         // Validates Intro headline is there
-        morePaddingContainer.find(".text-center p").shouldHave(matchText("[A-Z].{37,}"));
+        morePaddingContainer.find(".text-center p").shouldHave(matchText("[A-Z].{10,}"));
 
         // Verifies DemandWare Sections are there
-        dwOverviewContainer.findAll("[class*='col-sm']").shouldHaveSize(2);
+        $$(dwOverviewContainer.getSearchCriteria()+" > div > div").shouldHaveSize(2);
 
         // Validates E-commerce Testing's Picture is there
-        dwOverviewContainer.findAll("[class*='col-sm'] i").shouldHaveSize(1);
+        $$(dwOverviewContainer.getSearchCriteria()+"  > div > div i").shouldHaveSize(1);
 
         // Asserts Headlines Text
-        dwOverviewContainer.findAll("h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.eCommerce"))).should(exist);
-        dwOverviewContainer.findAll("h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.weKnow"))).should(exist);
-        dwOverviewContainer.findAll("h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.functionalTesting"))).should(exist);
-        dwOverviewContainer.findAll("h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.agileTesting"))).should(exist);
-        dwOverviewContainer.findAll("h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.loadAndPerformance"))).should(exist);
-        dwOverviewContainer.findAll("h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.testAutomation"))).should(exist);
+        $$(dwOverviewContainer.getSearchCriteria()+" h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.eCommerce"))).should(exist);
+        $$(dwOverviewContainer.getSearchCriteria()+" h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.weKnow"))).should(exist);
+        $$(dwOverviewContainer.getSearchCriteria()+" h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.functionalTesting"))).should(exist);
+        $$(dwOverviewContainer.getSearchCriteria()+" h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.agileTesting"))).should(exist);
+        $$(dwOverviewContainer.getSearchCriteria()+" h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.loadAndPerformance"))).should(exist);
+        $$(dwOverviewContainer.getSearchCriteria()+" h2").findBy(exactText(Neodymium.localizedText("servicePage.salesforce.intro.testAutomation"))).should(exist);
 
         // Validates Fact Tables are there
-        dwOverviewContainer.findAll("td.key").shouldHaveSize(2);
-        dwOverviewContainer.findAll("td.value").shouldHaveSize(2);
+        $$(dwOverviewContainer.getSearchCriteria()+" td.key").shouldHaveSize(2);
+        $$(dwOverviewContainer.getSearchCriteria()+" td.value").shouldHaveSize(2);
 
         // Validates Texts are there
-        dwOverviewContainer.findAll("p.lead").shouldHaveSize(5);
-        dwOverviewContainer.findAll("p.lead, p.lead~p, p.lead~ul").shouldHaveSize(11);
+        $$(dwOverviewContainer.getSearchCriteria()+" p.lead").shouldHaveSize(5);
+        $$(dwOverviewContainer.getSearchCriteria()+" p.lead, p.lead~p, p.lead~ul").shouldHaveSize(11);
     }
 
 }

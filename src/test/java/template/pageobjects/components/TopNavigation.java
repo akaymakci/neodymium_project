@@ -22,10 +22,11 @@ public class TopNavigation extends AbstractComponent {
         topNav.should(exist);
     }
     public SelenideElement navigationContainer = $("#navigation");
+    public ElementsCollection navigationContainerAll = $$("#navigation li a");
     @Step("click on the top category '{topCategory}'")
     public void clickCategory(String topCategory)
     {
-        navigationContainer.findAll(".navbar-header ul.nav li").findBy(exactText(topCategory)).click();
+        $$(navigationContainer.getSearchCriteria() +" .navbar-header ul.nav li").findBy(exactText(topCategory)).click();
     }
     public ServicePage openServicePage(){
 
@@ -41,19 +42,19 @@ public class TopNavigation extends AbstractComponent {
     public SelenideElement subNavigation = $("#sub-navigation");
     @Step("click on the top category '{subCategory}'")
     public void clickSubCategory(String subCategory){
-        subNavigation.findAll(".navbar-nav li").findBy(exactText(subCategory)).click();
+        $$(subNavigation.getSearchCriteria() +" .navbar-nav li").findBy(exactText(subCategory)).click();
     }
     @Step("validate Sub Category")
     public void validateSubCategoryByLocalizationPath(String subCategoryLocalizedPath) {
         // Asserts there are subcategories in the nav bar.
-        subNavigation.findAll(".navbar a").findBy(exactText(Neodymium.localizedText(subCategoryLocalizedPath))).shouldBe(visible);
+        $$(subNavigation.getSearchCriteria() +" .navbar a").findBy(exactText(Neodymium.localizedText(subCategoryLocalizedPath))).shouldBe(visible);
     }
 
     @Step("validate structure top navigation")
     public void validateStructure()
     {
         // Verifies the company Logo and name are visible.
-        navigationContainer.find(".navbar-brand a[title=Home]").shouldBe(visible);
+        navigationContainer.find(" nav > div > a").shouldBe(visible);
 
         // Verifies the Navigation bar is visible
         navigationContainer.find(".navbar-header ul.nav").shouldBe(visible);
@@ -62,13 +63,13 @@ public class TopNavigation extends AbstractComponent {
         navigationContainer.find("ul.nav").shouldBe(visible);
 
         // validate navigation texts
-        navigationContainer.findAll("li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.services"))).shouldBe(visible);
-        navigationContainer.findAll("li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.xlt"))).shouldBe(visible);
-        navigationContainer.findAll("li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.company"))).shouldBe(visible);
-        navigationContainer.findAll("li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.news"))).shouldBe(visible);
-        navigationContainer.findAll("li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.careers"))).shouldBe(visible);
-        navigationContainer.findAll("li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.contact"))).shouldBe(visible);
-        navigationContainer.findAll("li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.blog"))).shouldBe(visible);
+        $$(navigationContainer.getSearchCriteria()+ " li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.services"))).shouldBe(visible);
+        $$(navigationContainer.getSearchCriteria()+ " li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.xlt"))).shouldBe(visible);
+        $$(navigationContainer.getSearchCriteria()+ " li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.company"))).shouldBe(visible);
+        $$(navigationContainer.getSearchCriteria()+ " li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.news"))).shouldBe(visible);
+        $$(navigationContainer.getSearchCriteria()+ " li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.careers"))).shouldBe(visible);
+        $$(navigationContainer.getSearchCriteria()+ " li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.contact"))).shouldBe(visible);
+        $$(navigationContainer.getSearchCriteria()+ " li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.blog"))).shouldBe(visible);
 
     }
 

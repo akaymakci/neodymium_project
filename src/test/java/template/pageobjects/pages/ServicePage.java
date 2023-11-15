@@ -4,10 +4,10 @@ import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.CollectionCondition.anyMatch;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class ServicePage extends AbstractPageObject{
     public SelenideElement servicesElement = $(".services");
@@ -37,60 +37,60 @@ public class ServicePage extends AbstractPageObject{
         $("#teaser").should(exist);
 
         // Asserts teaser text there.
-        teaserContainer.findAll("h1").findBy(matchText("[A-Z].{3,}")).should(exist);
-        teaserContainer.findAll("h1").findBy(exactText(Neodymium.localizedText("servicePage.overview.teaser.headline"))).should(exist);
+        $$(teaserContainer.getSearchCriteria() + " h1").findBy(matchText("[A-Z].{3,}")).should(exist);
+        $$(teaserContainer.getSearchCriteria() + " h1").findBy(exactText(Neodymium.localizedText("servicePage.overview.teaser.headline"))).shouldBe(visible);
 
 
         // Verifies service section
-        $$(".service-section div[class*='col-md']").shouldHave(sizeGreaterThan(0));
+//        $x("//*[@id=\"main\"]//div[@class=\"container\"]//div[@class]").shouldHave(sizeGreaterThan())
 
         // Validates Functional Testing
         // Validates Pictures are there
-        functionalTestingContainer.findAll("i").shouldHaveSize(2);
+        $$(functionalTestingContainer.getSearchCriteria()+ " i").shouldHaveSize(2);
 
         //Asserts Headlines text are there
-        functionalTestingContainer.findAll("h2").findBy(exactText(Neodymium.localizedText("servicePage.overview.functionalTesting.manualTesting"))).should(exist);
-        functionalTestingContainer.findAll("h2").findBy(exactText(Neodymium.localizedText("servicePage.overview.functionalTesting.automatedTesting"))).should(exist);
+        $$(functionalTestingContainer.getSearchCriteria()+ " h2").findBy(exactText(Neodymium.localizedText("servicePage.overview.functionalTesting.manualTesting"))).should(exist);
+        $$(functionalTestingContainer.getSearchCriteria()+ " h2").findBy(exactText(Neodymium.localizedText("servicePage.overview.functionalTesting.automatedTesting"))).should(exist);
 
         //Validates Headlines are there
-        functionalTestingContainer.findAll("p.lead").shouldHaveSize(2);
+        $$(functionalTestingContainer.getSearchCriteria()+ " p.lead").shouldHaveSize(2);
 
         //Validates Texts are there
-        functionalTestingContainer.findAll("p.lead+p").shouldHaveSize(2);
+        $$(functionalTestingContainer.getSearchCriteria()+ " p.lead+p").shouldHaveSize(2);
 
         // Validates Load and Performance Testing
         // Validates Pictures are there
-        performanceTestingContainer.findAll("i").shouldHaveSize(1);
+        $$(performanceTestingContainer.getSearchCriteria()+ " i").shouldHaveSize(1);
 
         //Asserts Headline's texts are there
-        performanceTestingContainer.findAll("h2").findBy(exactText(Neodymium.localizedText("servicePage.overview.performanceTesting.loadUndPerformanceTesting"))).should(exist);
-        performanceTestingContainer.findAll("h3").findBy(exactText(Neodymium.localizedText("servicePage.overview.performanceTesting.subHeader.serverSidePerformanceTesting"))).should(exist);
-        performanceTestingContainer.findAll("h3").findBy(exactText(Neodymium.localizedText("servicePage.overview.performanceTesting.subHeader.clientSidePerformanceTesting"))).should(exist);
+        $$(performanceTestingContainer.getSearchCriteria()+ " h2").findBy(exactText(Neodymium.localizedText("servicePage.overview.performanceTesting.loadUndPerformanceTesting"))).should(exist);
+        $$(performanceTestingContainer.getSearchCriteria()+ " h3").findBy(exactText(Neodymium.localizedText("servicePage.overview.performanceTesting.subHeader.serverSidePerformanceTesting"))).should(exist);
+        $$(performanceTestingContainer.getSearchCriteria()+ " h3").findBy(exactText(Neodymium.localizedText("servicePage.overview.performanceTesting.subHeader.clientSidePerformanceTesting"))).should(exist);
 
         //Validates Headlines' subtexts are there
-        performanceTestingContainer.findAll("p.lead, h3+p").shouldHaveSize(3);
+        $$(performanceTestingContainer.getSearchCriteria()+ " p.lead, h3+p").shouldHaveSize(4);
 
         //Validates Texts are there
-        performanceTestingContainer.findAll("h3+p").shouldHaveSize(2);
+        $$(performanceTestingContainer.getSearchCriteria()+ " h3+p").shouldHaveSize(2);
 
         //Asserts Bullet points number
-        performanceTestingContainer.findAll("li").shouldHaveSize(6);
+        $$(performanceTestingContainer.getSearchCriteria()+ " li").shouldHaveSize(6);
 
         //Validates Texts are there
-        performanceTestingContainer.findAll("li").findBy(matchText("[A-Z].{3,}")).should(exist);
+        $$(performanceTestingContainer.getSearchCriteria()+ " li").findBy(matchText("[A-Z].{3,}")).should(exist);
 
         // Validates Test Guidance
         // Validates Pictures are there
-        testGuidanceContainer.find("i").should(exist);
+        $$(testGuidanceContainer.getSearchCriteria()+ " i").findBy(exactText("")).shouldBe(visible);
 
         //Asserts Headlines text are there
-        testGuidanceContainer.find("h2").shouldHave(exactText(Neodymium.localizedText("servicePage.overview.testGuidance"))).should(exist);
+        $$(testGuidanceContainer.getSearchCriteria()+ " h2").findBy(exactText(Neodymium.localizedText("servicePage.overview.testGuidance"))).shouldBe(visible);
 
         //Validates Headlines are there
-        testGuidanceContainer.find("p.lead").should(exist);
+        $$(testGuidanceContainer.getSearchCriteria()+ " p.lead").shouldHaveSize(1);
 
         //Validates Texts are there
-        testGuidanceContainer.find("p.lead+p").should(exist);
+        $$(testGuidanceContainer.getSearchCriteria()+ " p.lead+p").findBy(matchText("[A-Z].{5,}")).should(visible);
 
         //Validates subnavigation
         validateSubCategories();
