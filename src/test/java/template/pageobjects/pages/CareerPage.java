@@ -1,14 +1,15 @@
 package template.pageobjects.pages;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 import com.xceptance.neodymium.util.Neodymium;
 
 import io.qameta.allure.Step;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CareerPage extends AbstractPageObject
 {
@@ -79,20 +80,33 @@ public class CareerPage extends AbstractPageObject
 
         // Asserts Job Links
         // System.out.println(jobsOverviewContainer.find("ul li a").getAttribute("href"));
-        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.cambridge.qaEngineerLink"))).shouldBe(visible);
-        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.lastUndPerformanceTesterLink"))).shouldBe(visible);
-        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.javaEntwicklerLink"))).shouldBe(visible);
-        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerMarketingExperteLink")))
-                         .shouldBe(visible);
-        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerAutorLink"))).shouldBe(visible);
-        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerTesterLink"))).shouldBe(visible);
-        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.spezialistFürTestAutomatisierungLink")))
-                         .shouldBe(visible);
-        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.erfurt.technischerTesterLink"))).shouldBe(visible);
-        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.erfurt.lastUndPerformanceTesterLink")))
-                         .shouldBe(visible);
+        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.cambridge.qaEngineer"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.lastUndPerformanceTester"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.javaEntwickler"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerMarketingExperte"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerAutor"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerTester"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.spezialistFürTestAutomatisierung"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.erfurt.technischerTester"))).shouldBe(visible);
+        jobsOverviewUlLiA.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.erfurt.lastUndPerformanceTester"))).shouldBe(visible);
 
-        System.out.println(jobsOverviewUlLiA);
+        // Asserts whether the job positions are there
+        int indexOfCambridge = jobsOverviewPLocations.indexOf(jobsOverviewPLocations.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.cambridge"))));
+        int indexOfJena = jobsOverviewPLocations.indexOf(jobsOverviewPLocations.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.jena"))));
+        int indexOfErfurt = jobsOverviewPLocations.indexOf(jobsOverviewPLocations.findBy(exactText(Neodymium.localizedText("careerPage.jobsOverview.headlines.erfurt"))));
+        var cambridgeLocation = $$("#jobs-overview p.locations:nth-of-type("+(indexOfCambridge+1)+") + ul li a");
+        var jenaLocation = $$("#jobs-overview p.locations:nth-of-type("+(indexOfJena+1)+") + ul li a");
+        var erfurtLocation = $$("#jobs-overview p.locations:nth-of-type("+(indexOfErfurt+1)+") + ul li a");
+
+        cambridgeLocation.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.cambridge.qaEngineer"))).shouldBe(visible);
+        jenaLocation.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.lastUndPerformanceTester"))).shouldBe(visible);
+        jenaLocation.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.javaEntwickler"))).shouldBe(visible);
+        jenaLocation.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerMarketingExperte"))).shouldBe(visible);
+        jenaLocation.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerAutor"))).shouldBe(visible);
+        jenaLocation.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.technischerTester"))).shouldBe(visible);
+        jenaLocation.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.jena.spezialistFürTestAutomatisierung"))).shouldBe(visible);
+        erfurtLocation.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.erfurt.technischerTester"))).shouldBe(visible);
+        erfurtLocation.findBy(exactText(Neodymium.localizedText("careerPage.openPositions.locations.erfurt.lastUndPerformanceTester"))).shouldBe(visible);
 
         // Validates Jobs Background is there?
         jobsBackground.shouldBe(visible);

@@ -135,17 +135,17 @@ en_US:
     openPositions:
       locations:
         cambridge:
-          qaEngineerLink: "QA Engineer for Performance and Automated Testing"
+          qaEngineer: "QA Engineer for Performance and Automated Testing"
         jena:
-          lastUndPerformanceTesterLink: "Last- und Performancetester (m/w/d/*)"
-          javaEntwicklerLink: "Java-Entwickler (m/w/d/*)"
-          technischerMarketingExperteLink: "Technischer Marketingexperte (m/w/d/*)"
-          technischerAutorLink: "Technischer Autor (m/w/d/*)"
-          technischerTesterLink: "Technischer Tester (m/w/d/*)"
-          spezialistFürTestAutomatisierungLink: "Spezialist für Testautomatisierung (m/w/d/*)"
+          lastUndPerformanceTester: "Last- und Performancetester (m/w/d/*)"
+          javaEntwickler: "Java-Entwickler (m/w/d/*)"
+          technischerMarketingExperte: "Technischer Marketingexperte (m/w/d/*)"
+          technischerAutor: "Technischer Autor (m/w/d/*)"
+          technischerTester: "Technischer Tester (m/w/d/*)"
+          spezialistFürTestAutomatisierung: "Spezialist für Testautomatisierung (m/w/d/*)"
         erfurt:
-          technischerTesterLink: "Technischer Tester (m/w/d/*)"
-          lastUndPerformanceTesterLink: "Last- und Performancetester (m/w/d/*)"
+          technischerTester: "Technischer Tester (m/w/d/*)"
+          lastUndPerformanceTester: "Last- und Performancetester (m/w/d/*)"
     jobsBackground:
       title : |
         We look forward to
