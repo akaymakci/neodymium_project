@@ -21,31 +21,19 @@ public class TopNavigationForDocumentation extends AbstractComponent {
 
     }
 
-    @Step("click on the top category '{topCategory}'")
-    public void clickCategory(String topCategory)
-    {
-        var mainNavbar = $("#main_navbar");
-        $$(mainNavbar.getSearchCriteria() + " li span:nth-of-type(1)").findBy(exactText(topCategory)).click();
-    }
-
-    @Step("click on the top category and hover and click subcategory'{topCategory, subCategory}'")
+    @Step("click on the top category and hover and click subcategory'{topCategory}, {subCategory}'")
     public void hoverAndClickSubCategory(String topCategory,String subCategory)
     {
 
         var mainNavbar = $("#main_navbar");
-        $$(mainNavbar.getSearchCriteria() + " li span:nth-of-type(1)").findBy(exactText(topCategory)).click();
-        if($$(mainNavbar.getSearchCriteria() + " li span:nth-of-type(1)").first().getOwnText().equals("XLT"))
-            $$(mainNavbar.getSearchCriteria() + " li:nth-of-type(1) ul.dropdown-menu a.dropdown-item").findBy(exactText(subCategory)).hover().click();
-        else
-            $$(mainNavbar.getSearchCriteria() + " li:nth-of-type(2) ul.dropdown-menu a.dropdown-item").findBy(exactText(subCategory)).hover().click();
+        $$(mainNavbar.getSearchCriteria() + " li span").findBy(exactText(topCategory)).click();
+        $$(mainNavbar.getSearchCriteria() + " li ul.dropdown-menu a.dropdown-item").findBy(exactText(subCategory)).hover().click();
 
     }
 
     public BaseManualPage openBaseManualPage(){
 
-//        clickCategory(Neodymium.localizedText("documentation.topNavigation.xlt.baseManual"));
-
-        hoverAndClickSubCategory(Neodymium.localizedText("documentation.topNavigation.xlt.title"),Neodymium.localizedText("documentation.topNavigation.xlt.baseManual"));
+        hoverAndClickSubCategory(Neodymium.localizedText("docsPage.topNavigation.xlt.title"),Neodymium.localizedText("docsPage.topNavigation.xlt.baseManual"));
 
         return  new BaseManualPage().isExpectedPage();
     }
