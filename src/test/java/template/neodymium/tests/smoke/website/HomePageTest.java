@@ -1,4 +1,4 @@
-package template.neodymium.tests.smoke;
+package template.neodymium.tests.smoke.website;
 
 import com.xceptance.neodymium.util.AllureAddons;
 import io.qameta.allure.*;

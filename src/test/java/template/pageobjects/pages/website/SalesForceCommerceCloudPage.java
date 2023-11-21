@@ -1,16 +1,13 @@
-package template.pageobjects.pages;
+package template.pageobjects.pages.website;
 
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class SalesForceCommerceCloudPage extends AbstractPageObject{
+public class SalesForceCommerceCloudPage extends AbstractBrowsingPage {
 
     @Step("ensure this is a Service Page")
     @Override

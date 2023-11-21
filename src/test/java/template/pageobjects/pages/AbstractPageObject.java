@@ -1,28 +1,22 @@
 package template.pageobjects.pages;
 
-import template.pageobjects.components.Footer;
 import template.pageobjects.components.Title;
-import template.pageobjects.components.TopNavigation;
+import template.pageobjects.pages.documentation.DocsPage;
 
-/**
- * @author pfotenhauer
- */
-public abstract class AbstractPageObject
-{
+public abstract class AbstractPageObject {
+
     public Title title = new Title();
 
-    public TopNavigation topNavigation = new TopNavigation();
+    public DocsPage docsPage = new DocsPage();
 
-    public Footer footer = new Footer();
 
     public void validateStructure()
     {
-        topNavigation.validateStructure();
-        footer.validateStructure();
 
     }
 
     public AbstractPageObject isExpectedPage() {
-        return null;
+        return this;
     }
+
 }

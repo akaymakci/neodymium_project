@@ -1,4 +1,4 @@
-package template.pageobjects.pages;
+package template.pageobjects.pages.website;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -8,10 +8,7 @@ import com.xceptance.neodymium.util.Neodymium;
 
 import io.qameta.allure.Step;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class CareerPage extends AbstractPageObject
+public class CareerPage extends AbstractBrowsingPage
 {
 
     @Step("ensure this is a Career Page")

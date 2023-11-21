@@ -1,15 +1,13 @@
-package template.pageobjects.pages;
+package template.pageobjects.pages.website;
 
 import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.CollectionCondition.anyMatch;
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class ServicePage extends AbstractPageObject{
+public class ServicePage extends AbstractBrowsingPage {
     public SelenideElement servicesElement = $(".services");
 
     @Step("ensure this is a Service Page")

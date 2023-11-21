@@ -1,15 +1,16 @@
-package template.pageobjects.components;
+package template.pageobjects.components.website;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
+import template.pageobjects.components.AbstractComponent;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class Footer extends AbstractComponent{
+public class Footer extends AbstractComponent {
 //    private SelenideElement footer = $("footer");
 //    private ElementsCollection addressesElementCollection = $$("#addresses h3");
 //    private ElementsCollection emailElementCollection = $$("#addresses .email");

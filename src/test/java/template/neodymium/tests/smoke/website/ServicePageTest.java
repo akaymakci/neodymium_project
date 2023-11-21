@@ -1,14 +1,8 @@
-package template.neodymium.tests.smoke;
+package template.neodymium.tests.smoke.website;
 
-import com.xceptance.neodymium.util.DataUtils;
-import com.xceptance.neodymium.util.Neodymium;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
-import template.flows.OpenPageFlows.*;
-import template.pageobjects.components.TopNavigation;
-import template.pageobjects.pages.ServicePage;
 
 
 public class ServicePageTest extends AbstractTest {

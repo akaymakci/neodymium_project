@@ -50,10 +50,19 @@ en_US:
           "salesforce" : Salesforce Commerce Cloud
         xlt:
           "overview" : Overview
-          "features" : Feature
+          "features" : Features
           "documentation" : Documentation
           "licenseUndSupport" : License & Support
           "download" : Download
+  links:
+    xlt:
+      documentation:
+        userManual : User Manual
+        releaseNotes : Release Notes
+        apiDocumentation : API Documentation
+        gitHubReleases : GitHub Releases
+        gitHubIssueTracker : GitHub Issue Tracker
+        userForum : User Forum
   company:
       headline: |
         Welcome to Xceptance!
@@ -150,3 +159,24 @@ en_US:
       title : |
         We look forward to
         welcoming you at Xceptance!
+  documentation:
+    topNavigation:
+      xlt:
+        title: XLT
+        aboutXLT: About XLT
+        quickStart: Quick Start
+        baseManual: |
+          Base 
+          Manual
+        advancedLoadTesting: Advanced Load Testing
+        testSuites: Test Suites
+        howTos: How-Tos
+        glossary: Glossary
+        releaseNotes: Release Notes
+      xtc:
+        title: XTC
+        basics: Basics
+        loadTesting: Load Testing
+        monitoring: Monitoring
+        integrations: Integrations
+        releaseNotes: Release Notes

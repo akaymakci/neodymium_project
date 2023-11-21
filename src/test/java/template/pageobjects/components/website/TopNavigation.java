@@ -1,14 +1,13 @@
-package template.pageobjects.components;
+package template.pageobjects.components.website;
 
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.Step;
-import template.pageobjects.pages.CareerPage;
-import template.pageobjects.pages.SalesForceCommerceCloudPage;
-import template.pageobjects.pages.ServicePage;
+import template.pageobjects.components.AbstractComponent;
+import template.pageobjects.pages.website.CareerPage;
+import template.pageobjects.pages.website.ServicePage;
+import template.pageobjects.pages.website.XltPage;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -22,7 +21,7 @@ public class TopNavigation extends AbstractComponent {
         topNav.should(exist);
     }
     public SelenideElement navigationContainer = $("#navigation");
-    public ElementsCollection navigationContainerAll = $$("#navigation li a");
+
     @Step("click on the top category '{topCategory}'")
     public void clickCategory(String topCategory)
     {
@@ -38,6 +37,13 @@ public class TopNavigation extends AbstractComponent {
     public CareerPage openCareerPage(){
         clickCategory(Neodymium.localizedText("header.topNavigation.careers"));
         return  new CareerPage().isExpectedPage();
+    }
+
+    public XltPage openXltPage(){
+
+        clickCategory(Neodymium.localizedText("header.topNavigation.xlt"));
+
+        return  new XltPage().isExpectedPage();
     }
     public SelenideElement subNavigation = $("#sub-navigation");
     @Step("click on the top category '{subCategory}'")

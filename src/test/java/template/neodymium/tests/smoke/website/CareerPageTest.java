@@ -1,4 +1,4 @@
-package template.neodymium.tests.smoke;
+package template.neodymium.tests.smoke.website;
 
 import org.junit.Test;
 import template.flows.OpenPageFlows;
