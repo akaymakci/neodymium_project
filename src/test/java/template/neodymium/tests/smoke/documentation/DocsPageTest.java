@@ -1,10 +1,8 @@
 package template.neodymium.tests.smoke.documentation;
 
-import com.xceptance.neodymium.util.Neodymium;
 import org.junit.Test;
 import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
-import template.pageobjects.components.documentation.TopNavigationForDocumentation;
 
 public class DocsPageTest extends AbstractTest {
 

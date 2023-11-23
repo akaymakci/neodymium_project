@@ -2,6 +2,8 @@ package template.pageobjects.pages.documentation;
 
 import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.Step;
+import template.neodymium.tests.smoke.testdata.pageobjects.components.SearchTestData;
+import template.pageobjects.components.documentation.SearchForDocs;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.exist;
@@ -13,14 +15,16 @@ public class DocsPage extends AbstractDocsBrowsingPage {
     @Override
     public DocsPage isExpectedPage()
     {
-        var tdContentH1Element = $(".row h1");
         super.isExpectedPage();
+        var tdContentH1Element = $(".row h1");
         tdContentH1Element.shouldHave(exactText(Neodymium.localizedText("docsPage.title")));
         return this;
     }
     public void validateStructure()
     {
-
+        SearchForDocs searchForDocs = new SearchForDocs();
+        SearchTestData searchTestData = new SearchTestData();
+//        searchForDocs.validateSearchTerm(searchTestData.getSearchTerm());
     }
 
 }

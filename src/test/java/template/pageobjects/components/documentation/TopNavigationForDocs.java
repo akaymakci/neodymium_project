@@ -2,17 +2,17 @@ package template.pageobjects.components.documentation;
 
 import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.Step;
-import template.neodymium.tests.smoke.documentation.BaseManualPageTest;
 import template.pageobjects.components.AbstractComponent;
 import template.pageobjects.pages.documentation.BaseManualPage;
-import template.pageobjects.pages.documentation.DocsPage;
-import template.pageobjects.pages.website.DocumentationPage;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TopNavigationForDocumentation extends AbstractComponent {
+public class TopNavigationForDocs extends AbstractComponent {
+
+    public SearchForDocs searchForDocs = new SearchForDocs();
+
     @Override
     public void isComponentAvailable() {
 
@@ -39,6 +39,11 @@ public class TopNavigationForDocumentation extends AbstractComponent {
     }
 
 
+    @Step("validate top navigation")
+    public void validateStructure()
+    {
+        searchForDocs.validateStructure();
+    }
 
 
 }

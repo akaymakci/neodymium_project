@@ -7,7 +7,7 @@ public abstract class AbstractPageObject {
 
     public Title title = new Title();
 
-    public DocsPage docsPage = new DocsPage();
+//    public DocsPage docsPage = new DocsPage();
 
 
     public void validateStructure()

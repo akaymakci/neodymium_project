@@ -3,7 +3,6 @@ package template.neodymium.tests.smoke.documentation;
 import org.junit.Test;
 import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
-import template.pageobjects.components.documentation.TopNavigationForDocumentation;
 
 public class BaseManualPageTest extends AbstractTest {
 
@@ -18,7 +17,7 @@ public class BaseManualPageTest extends AbstractTest {
         var docPage= xltPageOverview.goToDocumentationPage().goToDocsPage();
         docPage.validateStructure();
 
-        var baseManualPageOverview = docPage.topNavigationForDocumentation.openBaseManualPage();
+        var baseManualPageOverview = docPage.topNavigationForDocs.openBaseManualPage();
         baseManualPageOverview.validateStructure();
     }
 

@@ -181,3 +181,8 @@ en_US:
         monitoring: Monitoring
         integrations: Integrations
         releaseNotes: Release Notes
+    search:
+      noResultsFound:
+        No results found for query
+  noHitsPage:
+    searchResults: Search Results

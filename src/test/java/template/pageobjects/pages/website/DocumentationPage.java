@@ -3,7 +3,6 @@ package template.pageobjects.pages.website;
 import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.Step;
-import template.pageobjects.components.documentation.TopNavigationForDocumentation;
 import template.pageobjects.pages.documentation.DocsPage;
 
 import static com.codeborne.selenide.Condition.exactText;

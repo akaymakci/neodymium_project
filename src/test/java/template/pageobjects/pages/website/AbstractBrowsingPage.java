@@ -6,7 +6,7 @@ import template.pageobjects.components.website.TopNavigation;
 import template.pageobjects.pages.documentation.DocsPage;
 
 /**
- * @author pfotenhauer
+ * @author akaymakci
  */
 public abstract class AbstractBrowsingPage
 {
@@ -26,5 +26,6 @@ public abstract class AbstractBrowsingPage
 
     public AbstractBrowsingPage isExpectedPage() {
         return null;
+//        return this;
     }
 }
