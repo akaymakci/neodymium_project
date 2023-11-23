@@ -40,4 +40,11 @@ public class ResultsPage extends AbstractDocsBrowsingPage{
         $("div h1").should(exist);
     }
 
+    @Step("open homepage from Search Results page")
+    public DocsPage openDocsPage()
+    {
+        $(".navbar-brand").scrollTo().click();
+        return new DocsPage().isExpectedPage();
+    }
+
 }

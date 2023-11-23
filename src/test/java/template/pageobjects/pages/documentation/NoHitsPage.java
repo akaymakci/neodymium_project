@@ -29,11 +29,10 @@ public class NoHitsPage extends AbstractDocsBrowsingPage{
 
     /// ----- no hits page navigation ----- ///
 
-    @Step("open Docs Page from no hits page")
-    public DocsPage openHomePage()
+    @Step("open homepage from No Hits page")
+    public DocsPage openDocsPage()
     {
-        var tdContentH1Element = $(".row h1");
-        tdContentH1Element.shouldHave(exactText(Neodymium.localizedText("docsPage.title")));
+        $(".navbar-brand").scrollTo().click();
         return new DocsPage().isExpectedPage();
     }
 

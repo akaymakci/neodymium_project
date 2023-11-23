@@ -1,6 +1,5 @@
 package template.neodymium.tests.smoke.documentation;
 
-import com.xceptance.neodymium.module.statement.testdata.DataFile;
 import com.xceptance.neodymium.module.statement.testdata.DataSet;
 import com.xceptance.neodymium.util.DataUtils;
 import org.junit.Before;
@@ -29,21 +28,41 @@ public class SearchTest extends AbstractTest {
         // go to xlt page
         var xltPageOverview = homePage.topNavigation.openXltPage();
         // go to Documentation Page Category
-        var docsPage= xltPageOverview.goToDocumentationPage().goToDocsPage();
-        docsPage.validateStructure();
+        var docsXltPage= xltPageOverview.goToDocumentationPage().goToDocsXltPage();
+        docsXltPage.validateStructure();
 
         // go to category page
-        var resultsPage = docsPage.topNavigationForDocs.searchForDocs.resultsPageResult(searchTestData.getSearchTerm());
+        var resultsPage = docsXltPage.topNavigationForDocs.searchForDocs.searchWithResults(searchTestData.getSearchTerm());
         resultsPage.validate(searchTestData.getSearchTerm());
 
-        //go to product detail page
-//        final String productName = categoryPage.getProductNameByPosition(searchTestData.getResultPosition());
-//        var productDetailPage = resultsPage.clickProductByPosition(searchTestData.getResultPosition());
-//        productDetailPage.validate(productName);
+        // go to docspage
+        var docsPage = docsXltPage.openDocsPage();
+        docsPage.validateStructure();
 
-        //TODO:
+
+        testSearchingWithoutResult();
+
+    }
+//    @Test
+    //@DataSet(2)
+    public void testSearchingWithoutResult()
+    {
         // go to homepage
-        // homePage = productDetailPage.openHomePage(); // --- Burayi tamamla
+        var homePage = OpenPageFlows.openHomePage();
+
+        // go to xlt page
+        var xltPageOverview = homePage.topNavigation.openXltPage();
+        // go to Documentation Page Category
+        var docsXltPage = xltPageOverview.goToDocumentationPage().goToDocsXltPage();
+        docsXltPage.validateStructure();
+
+        // go to no hits page
+        var noHitsPage = docsXltPage.topNavigationForDocs.searchForDocs.noHitsPageResult("sdfaasdf");
+        noHitsPage.validateStructure();
+//
+//        // go to docsPage
+        var docsPage = docsXltPage.openDocsPage();
+        docsPage.validateStructure();
     }
 
 

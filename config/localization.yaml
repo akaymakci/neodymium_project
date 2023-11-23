@@ -160,7 +160,9 @@ en_US:
         We look forward to
         welcoming you at Xceptance!
   docsPage:
-    title: XLT Documentation
+    title: Welcome to the Xceptance Documentation Hub!
+    xltDocsPage:
+      title: XLT Documentation
     topNavigation:
       xlt:
         title: XLT

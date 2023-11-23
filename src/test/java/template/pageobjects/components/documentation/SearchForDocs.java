@@ -3,7 +3,7 @@ package template.pageobjects.components.documentation;
 import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.Step;
-import template.neodymium.tests.smoke.testdata.pageobjects.components.SearchTestData;
+import template.neodymium.tests.smoke.testdata.pageobjects.utils.XceptanceHelper;
 import template.pageobjects.components.AbstractComponent;
 import template.pageobjects.pages.documentation.NoHitsPage;
 import template.pageobjects.pages.documentation.ResultsPage;
@@ -35,12 +35,14 @@ public class SearchForDocs extends AbstractComponent {
     {
         var agree = $("#agree");
         var algoliaSuggestion = $$(".algolia-docsearch-suggestion--subcategory-column-text");
-        //.algolia-docsearch-suggestion--subcategory-column-text
-        //.algolia-docsearch-suggestion--title
         openSearch();
+        XceptanceHelper.optionalWaitUntilCondition(agree,visible,1000);
         agree.click();
         searchField.val(searchTerm);
-        algoliaSuggestion.findBy(exactText(searchTerm)).shouldBe(visible).hover().click();
+        if($("div.algolia-docsearch-suggestion--text").getOwnText().contains("No results"))
+            searchField.pressEnter();
+        else
+            algoliaSuggestion.findBy(exactText(searchTerm)).shouldBe(visible).hover().click();
 
     }
     @Step("validate that '{searchTerm}' is still visible after search")
@@ -64,7 +66,7 @@ public class SearchForDocs extends AbstractComponent {
         return new NoHitsPage().isExpectedPage();
     }
     @Step("search for '{searchTerm}' with result")
-    public ResultsPage resultsPageResult(String searchTerm)
+    public ResultsPage searchWithResults(String searchTerm)
     {
         search(searchTerm);
         return new ResultsPage().isExpectedPage();

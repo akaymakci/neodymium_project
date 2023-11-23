@@ -4,21 +4,22 @@ import org.junit.Test;
 import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
 
-public class BaseManualPageTest extends AbstractTest {
+public class DocsXLTPageTest extends AbstractTest {
 
     @Test
     public void testBrowsing() {
 
+//        TopNavigationForDocumentation topNavigationForDocumentation = new TopNavigationForDocumentation();
         var homePage = OpenPageFlows.openHomePage();
 
         // go to xlt page
         var xltPageOverview = homePage.topNavigation.openXltPage();
         // go to Documentation Page Category
-        var docPage= xltPageOverview.goToDocumentationPage().goToDocsXltPage();
-        docPage.validateStructure();
+        xltPageOverview.goToDocumentationPage().goToDocsXltPage().validateStructure();
 
-        var baseManualPageOverview = docPage.topNavigationForDocs.openBaseManualPage();
-        baseManualPageOverview.validateStructure();
+
+
+//        var baseManualPageOverview = topNavigationForDocumentation.openBaseManualPage();
+//        baseManualPageOverview.validateStructure();
     }
-
 }

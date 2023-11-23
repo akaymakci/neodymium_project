@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.Step;
 import template.pageobjects.pages.documentation.DocsPage;
+import template.pageobjects.pages.documentation.DocxXltPage;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.exist;
@@ -35,7 +36,7 @@ public class DocumentationPage extends AbstractBrowsingPage {
 //
 //        DocsPage docsPage = new DocsPage();
 //        docsPage.isExpectedPage();
-        goToDocsPage();
+        goToDocsXltPage();
 
     }
 
@@ -45,9 +46,9 @@ public class DocumentationPage extends AbstractBrowsingPage {
         documentationLinks.findBy(exactText(link)).click();
     }
 
-    public DocsPage goToDocsPage(){
+    public DocxXltPage goToDocsXltPage(){
         clickDocumentationLinks((Neodymium.localizedText("links.xlt.documentation.userManual")));
-        return new DocsPage().isExpectedPage();
+        return new DocxXltPage().isExpectedPage();
     }
 
 

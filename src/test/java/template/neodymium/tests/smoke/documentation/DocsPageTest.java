@@ -15,7 +15,7 @@ public class DocsPageTest extends AbstractTest {
         // go to xlt page
         var xltPageOverview = homePage.topNavigation.openXltPage();
         // go to Documentation Page Category
-        xltPageOverview.goToDocumentationPage().goToDocsPage().validateStructure();
+        xltPageOverview.goToDocumentationPage().goToDocsXltPage().openDocsPage().validateStructure();
 
 
 
