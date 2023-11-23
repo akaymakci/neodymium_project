@@ -40,11 +40,9 @@ public class SearchTest extends AbstractTest {
         docsPage.validateStructure();
 
 
-        testSearchingWithoutResult();
-
     }
-//    @Test
-    //@DataSet(2)
+    @Test
+    @DataSet(2)
     public void testSearchingWithoutResult()
     {
         // go to homepage
@@ -52,19 +50,18 @@ public class SearchTest extends AbstractTest {
 
         // go to xlt page
         var xltPageOverview = homePage.topNavigation.openXltPage();
+
         // go to Documentation Page Category
         var docsXltPage = xltPageOverview.goToDocumentationPage().goToDocsXltPage();
         docsXltPage.validateStructure();
 
         // go to no hits page
-        var noHitsPage = docsXltPage.topNavigationForDocs.searchForDocs.noHitsPageResult("sdfaasdf");
+        var noHitsPage = docsXltPage.topNavigationForDocs.searchForDocs.noHitsPageResult(searchTestData.getSearchTerm());
         noHitsPage.validateStructure();
-//
+
 //        // go to docsPage
         var docsPage = docsXltPage.openDocsPage();
         docsPage.validateStructure();
     }
-
-
 
 }

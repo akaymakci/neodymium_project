@@ -24,7 +24,6 @@ public class ResultsPage extends AbstractDocsBrowsingPage{
     public void validate(String searchTermToValidate)
     {
         validateStructure();
-        System.out.println(searchTermToValidate);
         validateDocsCategoryHeadline(searchTermToValidate);
     }
     public void validateDocsCategoryHeadline(String docCategoryName){

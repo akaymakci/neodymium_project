@@ -36,10 +36,11 @@ public class SearchForDocs extends AbstractComponent {
         var agree = $("#agree");
         var algoliaSuggestion = $$(".algolia-docsearch-suggestion--subcategory-column-text");
         openSearch();
-        XceptanceHelper.optionalWaitUntilCondition(agree,visible,1000);
-        agree.click();
+        if(XceptanceHelper.optionalWaitUntilCondition(agree,visible,1000)) {
+            agree.click();
+        }
         searchField.val(searchTerm);
-        if($("div.algolia-docsearch-suggestion--text").getOwnText().contains("No results"))
+        if ($("div.algolia-docsearch-suggestion--text").getOwnText().contains("No results"))
             searchField.pressEnter();
         else
             algoliaSuggestion.findBy(exactText(searchTerm)).shouldBe(visible).hover().click();
