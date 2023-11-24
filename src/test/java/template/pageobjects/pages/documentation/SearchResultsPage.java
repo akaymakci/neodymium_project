@@ -1,19 +1,16 @@
 package template.pageobjects.pages.documentation;
 
-import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.Step;
-import template.neodymium.tests.smoke.testdata.pageobjects.components.SearchTestData;
-import template.pageobjects.components.documentation.SearchForDocs;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class ResultsPage extends AbstractDocsBrowsingPage{
+public class SearchResultsPage extends AbstractDocsBrowsingPage{
 
     @Step("ensure this is a Results Page")
     @Override
-    public ResultsPage isExpectedPage()
+    public SearchResultsPage isExpectedPage()
     {
         super.isExpectedPage();
         var navOlLiA = $("nav ol li a");
@@ -21,14 +18,18 @@ public class ResultsPage extends AbstractDocsBrowsingPage{
         return this;
     }
     @Step("validate category page of category '{categoryName}'")
-    public void validate(String searchTermToValidate)
+    public void validate(String searchTermToValidate, String expectedResultToValidate)
     {
         validateStructure();
-        validateDocsCategoryHeadline(searchTermToValidate);
+        validateDocsCategoryHeadline(searchTermToValidate,expectedResultToValidate);
     }
-    public void validateDocsCategoryHeadline(String docCategoryName){
+    public void validateDocsCategoryHeadline(String docCategoryName, String expectedDocCategoryName){
+
+        var algoliaSearchResultContent =$$("main div.td-content");
         var activeClass = $$("#td-section-nav ul li[class*='collapse'] > a[class]");
-        activeClass.findBy(exactText(docCategoryName)).shouldBe(visible);
+
+        algoliaSearchResultContent.findBy(text(docCategoryName)).shouldBe(visible);
+        activeClass.findBy(exactText(expectedDocCategoryName)).shouldBe(visible);
 
     }
 

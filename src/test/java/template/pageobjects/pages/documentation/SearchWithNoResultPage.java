@@ -6,11 +6,11 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class NoHitsPage extends AbstractDocsBrowsingPage{
+public class SearchWithNoResultPage extends AbstractDocsBrowsingPage{
 
     @Override
     @Step("ensure this is a no hits page")
-    public NoHitsPage isExpectedPage()
+    public SearchWithNoResultPage isExpectedPage()
     {
         super.isExpectedPage();
         $("h2").shouldHave(exactText(Neodymium.localizedText("noHitsPage.searchResults")));
@@ -24,7 +24,7 @@ public class NoHitsPage extends AbstractDocsBrowsingPage{
     public void validateStructure()
     {
         super.validateStructure();
-//        validateNoProductsFound();
+
     }
 
     /// ----- no hits page navigation ----- ///
@@ -35,6 +35,5 @@ public class NoHitsPage extends AbstractDocsBrowsingPage{
         $(".navbar-brand").scrollTo().click();
         return new DocsPage().isExpectedPage();
     }
-
 
 }

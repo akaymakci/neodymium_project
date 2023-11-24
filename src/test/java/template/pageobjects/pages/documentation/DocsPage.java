@@ -22,7 +22,7 @@ public class DocsPage extends AbstractDocsBrowsingPage {
     }
     public void validateStructure()
     {
-//        searchForDocs.validateSearchTerm(searchTestData.getSearchTerm());
+
     }
 
 }

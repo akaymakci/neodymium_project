@@ -6,11 +6,11 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class DocxXltPage extends AbstractDocsBrowsingPage{
+public class DocsXltPage extends AbstractDocsBrowsingPage{
 
     @Step("ensure this is a Docs XLT Page")
     @Override
-    public DocxXltPage isExpectedPage()
+    public DocsXltPage isExpectedPage()
     {
         super.isExpectedPage();
         var tdContentH1Element = $(".row h1");
@@ -20,7 +20,7 @@ public class DocxXltPage extends AbstractDocsBrowsingPage{
 
     public void validateStructure()
     {
-//        searchForDocs.validateSearchTerm(searchTestData.getSearchTerm());
+
     }
 
     @Step("open homepage from Docs XLT page")

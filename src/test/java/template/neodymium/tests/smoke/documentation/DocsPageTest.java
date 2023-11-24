@@ -9,7 +9,6 @@ public class DocsPageTest extends AbstractTest {
     @Test
     public void testBrowsing() {
 
-//        TopNavigationForDocumentation topNavigationForDocumentation = new TopNavigationForDocumentation();
         var homePage = OpenPageFlows.openHomePage();
 
         // go to xlt page
@@ -18,8 +17,5 @@ public class DocsPageTest extends AbstractTest {
         xltPageOverview.goToDocumentationPage().goToDocsXltPage().openDocsPage().validateStructure();
 
 
-
-//        var baseManualPageOverview = topNavigationForDocumentation.openBaseManualPage();
-//        baseManualPageOverview.validateStructure();
     }
 }

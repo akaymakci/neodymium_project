@@ -7,60 +7,61 @@ import org.junit.Test;
 import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
 import template.neodymium.tests.smoke.testdata.pageobjects.components.SearchTestData;
+import template.pageobjects.components.documentation.SearchForDocs;
+import template.pageobjects.pages.documentation.DocsXltPage;
+
 //@DataFile("src/test/resources/template/tests/smoke/SearchTest.json")
 public class SearchTest extends AbstractTest {
 
     private SearchTestData searchTestData;
+    private DocsXltPage docsXltPage;
+
+//    public void setup()
+//    {
+//        searchTestData = DataUtils.get(SearchTestData.class);
+//    }
 
     @Before
-    public void setup()
-    {
+    public void openDocsXltPage(){
         searchTestData = DataUtils.get(SearchTestData.class);
+
+        // go to homepage
+        var homePage = OpenPageFlows.openHomePage();
+
+        // go to xlt page
+        var xltPageOverview = homePage.topNavigation.openXltPage();
+
+        // go to Documentation Page Category
+        docsXltPage= xltPageOverview.goToDocumentationPage().goToDocsXltPage();
+        docsXltPage.validateStructure();
     }
 
     @Test
-    @DataSet(1)
+    @DataSet(id = "search with results")
     public void testSearching()
     {
-        // go to homepage
-        var homePage = OpenPageFlows.openHomePage();
+        // go to Search with results page
 
-        // go to xlt page
-        var xltPageOverview = homePage.topNavigation.openXltPage();
-        // go to Documentation Page Category
-        var docsXltPage= xltPageOverview.goToDocumentationPage().goToDocsXltPage();
-        docsXltPage.validateStructure();
+        var searchForDocsPage = docsXltPage.topNavigationForDocs.searchForDocs;
+        var searchWithResultsPage = searchForDocsPage.searchWithResults(searchTestData.getSearchTerm());
+        searchWithResultsPage.validateDocsCategoryHeadline(searchTestData.getSearchTerm(),searchTestData.getExpectedResult());
 
-        // go to category page
-        var resultsPage = docsXltPage.topNavigationForDocs.searchForDocs.searchWithResults(searchTestData.getSearchTerm());
-        resultsPage.validate(searchTestData.getSearchTerm());
-
-        // go to docspage
-        var docsPage = docsXltPage.openDocsPage();
+        // go to Docs page
+        var docsPage = searchWithResultsPage.openDocsPage();
         docsPage.validateStructure();
-
 
     }
     @Test
-    @DataSet(2)
+    @DataSet(id = "search with no result")
     public void testSearchingWithoutResult()
     {
-        // go to homepage
-        var homePage = OpenPageFlows.openHomePage();
+        // go to Search with no results page
+        var searchForDocsPage = docsXltPage.topNavigationForDocs.searchForDocs;
+        var searchWithNoResultPage = searchForDocsPage.searchWithNoResult(searchTestData.getSearchTerm());
+        searchWithNoResultPage.validateStructure();
 
-        // go to xlt page
-        var xltPageOverview = homePage.topNavigation.openXltPage();
-
-        // go to Documentation Page Category
-        var docsXltPage = xltPageOverview.goToDocumentationPage().goToDocsXltPage();
-        docsXltPage.validateStructure();
-
-        // go to no hits page
-        var noHitsPage = docsXltPage.topNavigationForDocs.searchForDocs.noHitsPageResult(searchTestData.getSearchTerm());
-        noHitsPage.validateStructure();
-
-//        // go to docsPage
-        var docsPage = docsXltPage.openDocsPage();
+        // go to Docs Page
+        var docsPage = searchWithNoResultPage.openDocsPage();
         docsPage.validateStructure();
     }
 

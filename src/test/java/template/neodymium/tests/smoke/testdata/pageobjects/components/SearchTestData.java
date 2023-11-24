@@ -4,7 +4,7 @@ public class SearchTestData
 {
     private String searchTerm;
     
-//    private String expectedResult;
+    private String expectedResult;
 
 //    private int resultPosition;
     
@@ -13,10 +13,7 @@ public class SearchTestData
         return searchTerm;
     }
     
-//    public String getExpectedResult()
-//    {
-//        return expectedResult;
-//    }
+    public String getExpectedResult() { return expectedResult; }
     
 //    public int getResultPosition()
 //    {

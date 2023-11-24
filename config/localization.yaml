@@ -185,6 +185,6 @@ en_US:
         releaseNotes: Release Notes
     search:
       noResultsFound:
-        No results found for query
+        No results
   noHitsPage:
     searchResults: Search Results

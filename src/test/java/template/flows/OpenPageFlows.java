@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 import io.cucumber.java.en.And;
 import io.qameta.allure.Step;
+import template.pageobjects.pages.documentation.DocsPage;
 import template.pageobjects.pages.website.HomePage;
 
 public class OpenPageFlows
@@ -22,5 +23,4 @@ public class OpenPageFlows
         open(Neodymium.configuration().url());
         return new HomePage().isExpectedPage();
     };
-
 }

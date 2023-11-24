@@ -3,8 +3,7 @@ package template.pageobjects.pages.website;
 import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
 import io.qameta.allure.Step;
-import template.pageobjects.pages.documentation.DocsPage;
-import template.pageobjects.pages.documentation.DocxXltPage;
+import template.pageobjects.pages.documentation.DocsXltPage;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.exist;
@@ -46,11 +45,9 @@ public class DocumentationPage extends AbstractBrowsingPage {
         documentationLinks.findBy(exactText(link)).click();
     }
 
-    public DocxXltPage goToDocsXltPage(){
+    public DocsXltPage goToDocsXltPage(){
         clickDocumentationLinks((Neodymium.localizedText("links.xlt.documentation.userManual")));
-        return new DocxXltPage().isExpectedPage();
+        return new DocsXltPage().isExpectedPage();
     }
-
-
 
 }
