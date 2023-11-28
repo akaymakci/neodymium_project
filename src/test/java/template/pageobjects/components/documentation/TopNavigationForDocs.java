@@ -1,20 +1,24 @@
 package template.pageobjects.components.documentation;
 
+import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+
 import com.xceptance.neodymium.util.Neodymium;
+
 import io.qameta.allure.Step;
 import template.pageobjects.components.AbstractComponent;
 import template.pageobjects.pages.documentation.BaseManualPage;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
-
-public class TopNavigationForDocs extends AbstractComponent {
+public class TopNavigationForDocs extends AbstractComponent
+{
 
     public SearchForDocs searchForDocs = new SearchForDocs();
 
     @Override
-    public void isComponentAvailable() {
+    public void isComponentAvailable()
+    {
 
         var brandElement = $(".navbar-brand");
         brandElement.should(exist);
@@ -22,7 +26,7 @@ public class TopNavigationForDocs extends AbstractComponent {
     }
 
     @Step("click on the top category and hover and click subcategory'{topCategory}, {subCategory}'")
-    public void hoverAndClickSubCategory(String topCategory,String subCategory)
+    public void hoverAndClickSubCategory(String topCategory, String subCategory)
     {
 
         var mainNavbar = $("#main_navbar");
@@ -31,19 +35,18 @@ public class TopNavigationForDocs extends AbstractComponent {
 
     }
 
-    public BaseManualPage openBaseManualPage(){
+    public BaseManualPage openBaseManualPage()
+    {
 
-        hoverAndClickSubCategory(Neodymium.localizedText("docsPage.topNavigation.xlt.title"),Neodymium.localizedText("docsPage.topNavigation.xlt.baseManual"));
+        hoverAndClickSubCategory(Neodymium.localizedText("docsPage.topNavigation.xlt.title"), Neodymium.localizedText("docsPage.topNavigation.xlt.baseManual"));
 
-        return  new BaseManualPage().isExpectedPage();
+        return new BaseManualPage().isExpectedPage();
     }
-
 
     @Step("validate top navigation")
     public void validateStructure()
     {
         searchForDocs.validateStructure();
     }
-
 
 }

@@ -1,22 +1,26 @@
 package template.pageobjects.components.documentation;
 
-import com.codeborne.selenide.SelenideElement;
-import com.xceptance.neodymium.util.Neodymium;
-import io.qameta.allure.Step;
-import template.neodymium.tests.smoke.testdata.pageobjects.utils.XceptanceHelper;
-import template.pageobjects.components.AbstractComponent;
-import template.pageobjects.pages.documentation.SearchWithNoResultPage;
-import template.pageobjects.pages.documentation.SearchResultsPage;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class SearchForDocs extends AbstractComponent {
+import com.codeborne.selenide.SelenideElement;
+import com.xceptance.neodymium.util.Neodymium;
+
+import io.qameta.allure.Step;
+import template.neodymium.tests.smoke.testdata.pageobjects.utils.XceptanceHelper;
+import template.pageobjects.components.AbstractComponent;
+import template.pageobjects.pages.documentation.SearchResultsPage;
+import template.pageobjects.pages.documentation.SearchWithNoResultPage;
+
+public class SearchForDocs extends AbstractComponent
+{
 
     SelenideElement searchField = $("#docSearchInputField");
+
     @Override
-    public void isComponentAvailable() {
+    public void isComponentAvailable()
+    {
 
         searchField.should(exist);
     }
@@ -27,7 +31,7 @@ public class SearchForDocs extends AbstractComponent {
     public void openSearch()
     {
         searchField.scrollTo().click();
-//        searchField.click();
+        // searchField.click();
     }
 
     @Step("search for '{searchTerm}'")
@@ -36,14 +40,17 @@ public class SearchForDocs extends AbstractComponent {
         var agree = $("#agree");
         var algoliaSuggestion = $$(".algolia-docsearch-suggestion--content");
         openSearch();
-        if(XceptanceHelper.optionalWaitUntilCondition(agree,visible,1000)) {
+        if (XceptanceHelper.optionalWaitUntilCondition(agree, visible, 1000))
+        {
             agree.click();
         }
         searchField.val(searchTerm);
-        if ($("div.algolia-docsearch-suggestion--text").getOwnText().contains(Neodymium.localizedText("docsPage.search.noResultsFound"))) {
+        if ($("div.algolia-docsearch-suggestion--text").getOwnText().contains(Neodymium.localizedText("docsPage.search.noResultsFound")))
+        {
             searchField.pressEnter();
         }
-        else {
+        else
+        {
             algoliaSuggestion.findBy(text(searchTerm)).shouldBe(visible).hover().click();
         }
     }
@@ -54,6 +61,7 @@ public class SearchForDocs extends AbstractComponent {
         search(searchTerm);
         return new SearchWithNoResultPage().isExpectedPage();
     }
+
     @Step("search for '{searchTerm}' with result")
     public SearchResultsPage searchWithResults(String searchTerm)
     {
@@ -67,7 +75,6 @@ public class SearchForDocs extends AbstractComponent {
     {
 
         searchField.shouldBe(visible);
-
 
     }
 

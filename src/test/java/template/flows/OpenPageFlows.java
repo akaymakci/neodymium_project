@@ -1,13 +1,12 @@
 package template.flows;
 
-import com.xceptance.neodymium.util.Neodymium;
-
 import static com.codeborne.selenide.Selenide.clearBrowserCookies;
 import static com.codeborne.selenide.Selenide.open;
 
+import com.xceptance.neodymium.util.Neodymium;
+
 import io.cucumber.java.en.And;
 import io.qameta.allure.Step;
-import template.pageobjects.pages.documentation.DocsPage;
 import template.pageobjects.pages.website.HomePage;
 
 public class OpenPageFlows
@@ -22,5 +21,7 @@ public class OpenPageFlows
         // navigate to the home page
         open(Neodymium.configuration().url());
         return new HomePage().isExpectedPage();
-    };
+    }
+
+    ;
 }

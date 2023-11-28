@@ -1,15 +1,18 @@
 package template.neodymium.tests.smoke.website;
 
-import com.xceptance.neodymium.util.AllureAddons;
-import io.qameta.allure.*;
-import io.qameta.allure.junit4.DisplayName;
-import io.qameta.allure.junit4.Tag;
 import org.junit.Test;
 
+import com.xceptance.neodymium.util.AllureAddons;
 import com.xceptance.neodymium.util.Neodymium;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Issue;
+import io.qameta.allure.Owner;
+import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.junit4.Tag;
 import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
+
 @Owner("A Kaymakci")
 @Tag("smoke")
 @Issue("1")

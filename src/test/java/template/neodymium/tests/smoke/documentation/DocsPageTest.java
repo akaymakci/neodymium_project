@@ -1,13 +1,16 @@
 package template.neodymium.tests.smoke.documentation;
 
 import org.junit.Test;
+
 import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
 
-public class DocsPageTest extends AbstractTest {
+public class DocsPageTest extends AbstractTest
+{
 
     @Test
-    public void testBrowsing() {
+    public void testBrowsing()
+    {
 
         var homePage = OpenPageFlows.openHomePage();
 
@@ -15,7 +18,6 @@ public class DocsPageTest extends AbstractTest {
         var xltPageOverview = homePage.topNavigation.openXltPage();
         // go to Documentation Page Category
         xltPageOverview.goToDocumentationPage().goToDocsXltPage().openDocsPage().validateStructure();
-
 
     }
 }

@@ -1,11 +1,11 @@
 [
-    {
-        "testId": "search with results",
-        "searchTerm": "foobar",
-        "expectedResult": "4.2.x"
-    },
-    {
-        "testId": "search with no result",
-        "searchTerm": "dadsfasfda"
-    }
+  {
+    "testId": "search with results",
+    "searchTerm": "foobar",
+    "expectedResult": "4.2.x"
+  },
+  {
+    "testId": "search with no result",
+    "searchTerm": "dadsfasfda"
+  }
 ]

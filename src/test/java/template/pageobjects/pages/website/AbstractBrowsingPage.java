@@ -1,9 +1,8 @@
 package template.pageobjects.pages.website;
 
-import template.pageobjects.components.website.Footer;
 import template.pageobjects.components.Title;
+import template.pageobjects.components.website.Footer;
 import template.pageobjects.components.website.TopNavigation;
-import template.pageobjects.pages.documentation.DocsPage;
 
 /**
  * @author akaymakci
@@ -16,7 +15,6 @@ public abstract class AbstractBrowsingPage
 
     public Footer footer = new Footer();
 
-
     public void validateStructure()
     {
         topNavigation.validateStructure();
@@ -24,8 +22,9 @@ public abstract class AbstractBrowsingPage
 
     }
 
-    public AbstractBrowsingPage isExpectedPage() {
+    public AbstractBrowsingPage isExpectedPage()
+    {
         return null;
-//        return this;
+        // return this;
     }
 }

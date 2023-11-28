@@ -2,15 +2,18 @@ package template.pageobjects.pages.website;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
+
 import io.qameta.allure.Step;
 
 public class HomePage extends AbstractBrowsingPage
 {
     private SelenideElement homePageElement = $(".homepage");
+
     @Override
     @Step("ensure this is a homepage")
     public HomePage isExpectedPage()
@@ -18,20 +21,31 @@ public class HomePage extends AbstractBrowsingPage
         homePageElement.should(exist);
         return this;
     }
+
     @Step("validate poster slide")
     private void validatePosterSlide(int position, String headline)
     {
         // TODO - improve
-        for (int i = 0; i <position; i++) {
-            String strHeadlineFull = headline+"headline."+(i+1);
-            String strButtonFull = headline+"button."+(i+1);
-            $(".carousel-indicators li[data-slide-to='"+i+"']").click();
-            $(".carousel-indicators li[data-slide-to='"+i+"']").shouldHave(cssClass("active"));
+        for (int i = 0; i < position; i++)
+        {
+            String strHeadlineFull = headline + "headline." + (i + 1);
+            String strButtonFull = headline + "button." + (i + 1);
+            if (Neodymium.isDesktop())
+            {
+                $(".carousel-indicators li[data-slide-to='" + i + "']").click();
+            }
+            else
+            {
+                $(".right").click();
+            }
+
+            $(".carousel-indicators li[data-slide-to='" + i + "']").shouldHave(cssClass("active"));
             $$(".carousel-inner .item h1").findBy(exactText(Neodymium.localizedText(strHeadlineFull))).shouldBe(visible);
             $$(".item .btn-primary").findBy(exactText(Neodymium.localizedText(strButtonFull))).shouldBe(visible);
         }
 
     }
+
     @Step("validate poster slide")
     public void validatePosterSlide()
     {
@@ -42,7 +56,7 @@ public class HomePage extends AbstractBrowsingPage
     @Step("validate the home page")
     public void validateStructure()
     {
-//         Annoying privacy message close
+        // Annoying privacy message close
         $("#privacy-message .close").click();
 
         // Calls validateStructure of the parent class to validate basic things

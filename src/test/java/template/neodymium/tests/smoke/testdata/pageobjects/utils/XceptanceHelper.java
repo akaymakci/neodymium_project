@@ -3,9 +3,11 @@ package template.neodymium.tests.smoke.testdata.pageobjects.utils;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+
 import io.qameta.allure.Step;
 
-public class XceptanceHelper {
+public class XceptanceHelper
+{
     @Step("wait for a specific condition of an element")
     public static boolean optionalWaitUntilCondition(SelenideElement element, Condition condition, long maxWaitingTime)
     {

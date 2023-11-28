@@ -1,13 +1,16 @@
 package template.neodymium.tests.smoke.website;
 
 import org.junit.Test;
+
 import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
 
-public class XltPageTest extends AbstractTest {
+public class XltPageTest extends AbstractTest
+{
 
     @Test
-    public void testBrowsing() {
+    public void testBrowsing()
+    {
 
         // go to homepage
         var homePage = OpenPageFlows.openHomePage();
@@ -17,7 +20,7 @@ public class XltPageTest extends AbstractTest {
         xltPageOverview.validateStructure();
 
         // go to Documentation Page Category
-//        xltPageOverview.goToDocumentationPage().validateStructure();
+        // xltPageOverview.goToDocumentationPage().validateStructure();
 
     }
 
