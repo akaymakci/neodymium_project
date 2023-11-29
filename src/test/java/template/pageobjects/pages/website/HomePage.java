@@ -35,7 +35,10 @@ public class HomePage extends AbstractBrowsingPage
             }
             else
             {
-                $(".right").click();
+                while (!$(".carousel-indicators li[data-slide-to='" + i + "'][class='active']").isDisplayed())
+                {
+                    $(".right").click();
+                }
             }
 
             $(".carousel-indicators li[data-slide-to='" + i + "']").shouldHave(cssClass("active"));
