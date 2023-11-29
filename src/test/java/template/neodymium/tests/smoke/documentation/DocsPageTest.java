@@ -1,7 +1,6 @@
 package template.neodymium.tests.smoke.documentation;
 
 import org.junit.Test;
-
 import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
 

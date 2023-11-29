@@ -1,9 +1,8 @@
-package template.neodymium.tests.smoke.testdata.pageobjects.utils;
+package template.neodymium.tests.testdata.pageobjects.utils;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-
 import io.qameta.allure.Step;
 
 public class XceptanceHelper

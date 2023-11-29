@@ -1,11 +1,10 @@
 package template.pageobjects.pages.documentation;
 
+import com.xceptance.neodymium.util.Neodymium;
+import io.qameta.allure.Step;
+
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
-
-import com.xceptance.neodymium.util.Neodymium;
-
-import io.qameta.allure.Step;
 
 public class SearchWithNoResultPage extends AbstractDocsBrowsingPage
 {
@@ -34,13 +33,14 @@ public class SearchWithNoResultPage extends AbstractDocsBrowsingPage
     @Step("open homepage from No Hits page")
     public DocsPage openDocsPage()
     {
+        var navbarBrand = $(".navbar-brand");
         if (Neodymium.isDesktop())
         {
-            $(".navbar-brand").scrollTo().click();
+            navbarBrand.scrollTo().click();
         }
         else
         {
-            $(".navbar-brand").click();
+            navbarBrand.scrollIntoView(true).click();
         }
         return new DocsPage().isExpectedPage();
     }

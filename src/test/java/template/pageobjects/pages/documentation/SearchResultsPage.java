@@ -1,11 +1,11 @@
 package template.pageobjects.pages.documentation;
 
+import com.xceptance.neodymium.util.Neodymium;
+import io.qameta.allure.Step;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-
-import com.xceptance.neodymium.util.Neodymium;
-import io.qameta.allure.Step;
 
 public class SearchResultsPage extends AbstractDocsBrowsingPage
 {
@@ -26,8 +26,7 @@ public class SearchResultsPage extends AbstractDocsBrowsingPage
             contentMobil.shouldBe(visible);
         }
         return this;
-        //h2#xlt-422
-        //content-mobile
+
     }
 
     @Step("validate category page of category '{categoryName}'")
@@ -66,13 +65,14 @@ public class SearchResultsPage extends AbstractDocsBrowsingPage
     @Step("open homepage from Search Results page")
     public DocsPage openDocsPage()
     {
+        var navbarBrand = $(".navbar-brand");
         if (Neodymium.isDesktop())
         {
-            $(".navbar-brand").scrollTo().click();
+            navbarBrand.scrollTo().click();
         }
         else
         {
-            $(".navbar-brand").click();
+            navbarBrand.scrollIntoView(true).click();
         }
         return new DocsPage().isExpectedPage();
     }

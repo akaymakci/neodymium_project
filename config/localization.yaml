@@ -1,22 +1,174 @@
 default:
+# Deutschland
+de_DE:
   homepage:
-    title: Xceptance - The Software Testing Experts
+    title: Xceptance - Qualitätssicherung von Software
+  slider:
+    headline:
+      "1": |
+        Wir Testen Software.
+        Weil Qualität Entscheidet.
+      "2":
+        Wir sind Salesforce Commerce Cloud Partner.
+      "3":
+        XLT. Für die perfekte Verbindung von Entwicklung und Automation.
+    button:
+      "1": Erfahren Sie mehr
+      "2": Mehr
+      "3": Herunterladen
   header:
     topNavigation:
-      "1":
-        title: Services
-      "2":
-        title: xlt
-      "3":
-        title: Unternehmen
-      "4":
-        title: News
-      "5":
-        title: Jobs
-      "6":
-        title: Kontakt
-      "7":
-        title: Blog
+      "services": Services
+      "xlt": XLT
+      "company": Unternehmen
+      "news": News
+      "careers": Jobs
+      "contact": Kontakt
+      "blog": Blog
+      "subNavigation":
+        services:
+          "overview": Überblick
+          "salesforce": Salesforce Commerce Cloud
+        xlt:
+          "overview": Überblick
+          "features": Features
+          "documentation": Dokumentation
+          "licenseUndSupport": Lizenz & Support
+          "download": Download
+  links:
+    xlt:
+      documentation:
+        userManual: Benutzerhandbuch
+        releaseNotes: Release Notes
+        apiDocumentation: API Dokumentation
+        gitHubReleases: GitHub Releases
+        gitHubIssueTracker: GitHub Issue Tracker
+        userForum: Nutzerforum
+  company:
+    headline: |
+      Willkommen bei Xceptance.
+      Besuchen Sie uns. HIER ENTLANG
+    button: Hier entlang
+  footer:
+    address:
+      "germany": Jena, Deutschland Hauptsitz
+      "usa": Cambridge, MA, USA
+    email:
+      "germany": kontakt@xceptance.de
+      "usa": contact@xceptance.com
+    tel:
+      "germany": +49-3641-376300
+      "usa": +1-617-225-4335
+    linkTexts:
+      "aboutUs": Über uns
+      "contact": Kontakt
+      "services": Services
+      "xlt": XLT
+      "references": Referenzen
+      "privacy": Datenschutz
+      "blog": Blog
+      "xing": Xing
+      "linkedin": LinkedIn
+      "twitter": Twitter
+      "github": GitHub
+    newsTexts:
+      "latestNews": Aktuelles
+      "latestNews1": Technikspende für die Wandlungswelten
+      "latestNews2": Das FSU-Sommerfest 2023
+      "latestNews3": Xceptance macht Ideen groß
+  servicePage:
+    overview:
+      teaser:
+        headline: |
+          Tests erstellen und ausführen.
+          Ergebnisse bewerten.
+          Qualität erreichen.
+      functionalTesting:
+        manualTesting: Manuelle Tests
+        automatedTesting: Test­au­to­ma­ti­sie­rung
+      performanceTesting:
+        loadUndPerformanceTesting: Last- & Performance­tests
+        subHeader:
+          serverSidePerformanceTesting: Serverseitige Performance
+          clientSidePerformanceTesting: Clientseitige Performance
+      testGuidance: Test­unterstützung
+    salesforce:
+      teaser:
+        headline: >
+          14 Jahre Qualitäts­sicherung für Salesforce Commerce Cloud.
+        link: http://www.demandware.com/
+        linkTitle: Visit Salesforce Commerce Cloud
+      intro:
+        headline: Wir sind Salesforce Commerce Cloud Partner
+        eCommerce: E-Commerce Tests
+        weKnow: Wir kennen Salesforce Commerce Cloud
+        functionalTesting: Manuelles Testen
+        agileTesting: Agiles Testen einzelner Features
+        loadAndPerformance: Last- und Performancetests mit XLT
+        testAutomation: Testautomatisierung
+  careerPage:
+    jobsOverview:
+      headlines:
+        weAreHiring: Wir stellen ein
+        startUp: Start-Up Atmosphäre
+        workLife: Work-Life Balance
+        commitment: Integrität und Verantwortungsbewusstsein
+        careerDevelopment: Karrieremöglichkeiten
+        international: Internationale Projekte
+        roomForCreativity: Raum für Kreativität
+        greatLocations: Attraktives Umfeld
+        valuableInternships: Spannende Praktika
+        openPositions: Aktuelle Stellenangebote
+        cambridge: in Cambridge, MA, USA
+        jena: in Jena
+        erfurt: in Erfurt
+    openPositions:
+      locations:
+        cambridge:
+          qaEngineer: "QA Engineer for Performance and Automated Testing"
+        jena:
+          lastUndPerformanceTester: "Last- und Performancetester (m/w/d/*)"
+          javaEntwickler: "Java-Entwickler (m/w/d/*)"
+          technischerMarketingExperte: "Technischer Marketingexperte (m/w/d/*)"
+          technischerAutor: "Technischer Autor (m/w/d/*)"
+          technischerTester: "Technischer Tester (m/w/d/*)"
+          spezialistFürTestAutomatisierung: "Spezialist für Testautomatisierung (m/w/d/*)"
+        erfurt:
+          technischerTester: "Technischer Tester (m/w/d/*)"
+          lastUndPerformanceTester: "Last- und Performancetester (m/w/d/*)"
+    jobsBackground:
+      title: |
+        Wir freuen uns auf ein
+        Willkommen bei Xceptance!
+  docsPage:
+    title: Welcome to the Xceptance Documentation Hub!
+    xltDocsPage:
+      title: XLT Documentation
+    topNavigation:
+      xlt:
+        title: XLT
+        aboutXLT: About XLT
+        quickStart: Quick Start
+        baseManual: |
+          Base 
+          Manual
+        advancedLoadTesting: Advanced Load Testing
+        testSuites: Test Suites
+        howTos: How-Tos
+        glossary: Glossary
+        releaseNotes: Release Notes
+      xtc:
+        title: XTC
+        basics: Basics
+        loadTesting: Load Testing
+        monitoring: Monitoring
+        integrations: Integrations
+        releaseNotes: Release Notes
+    search:
+      noResultsFound:
+        No results
+  noHitsPage:
+    searchResults: Search Results
 # United States
 en_US:
   homepage:
@@ -27,7 +179,7 @@ en_US:
         We Test Software.
         Because Quality Matters.
       "2":
-        We are 
+        We are
         Salesforce Commerce Cloud Partner.
       "3":
         XLT - The Open Source Performance Test Tool.
@@ -47,27 +199,27 @@ en_US:
       "subNavigation":
         services:
           "overview": Overview
-          "salesforce" : Salesforce Commerce Cloud
+          "salesforce": Salesforce Commerce Cloud
         xlt:
-          "overview" : Overview
-          "features" : Features
-          "documentation" : Documentation
-          "licenseUndSupport" : License & Support
-          "download" : Download
+          "overview": Overview
+          "features": Features
+          "documentation": Documentation
+          "licenseUndSupport": License & Support
+          "download": Download
   links:
     xlt:
       documentation:
-        userManual : User Manual
-        releaseNotes : Release Notes
-        apiDocumentation : API Documentation
-        gitHubReleases : GitHub Releases
-        gitHubIssueTracker : GitHub Issue Tracker
-        userForum : User Forum
+        userManual: User Manual
+        releaseNotes: Release Notes
+        apiDocumentation: API Documentation
+        gitHubReleases: GitHub Releases
+        gitHubIssueTracker: GitHub Issue Tracker
+        userForum: User Forum
   company:
-      headline: |
-        Welcome to Xceptance!
-        Get to know us. THIS WAY
-      button: This way
+    headline: |
+      Welcome to Xceptance!
+      Get to know us. THIS WAY
+    button: This way
   footer:
     address:
       "germany": Jena, Germany Headquarters
@@ -102,13 +254,13 @@ en_US:
           Inspecting, Observing,
           Reporting.
       functionalTesting:
-        manualTesting : Manual Testing
-        automatedTesting : Automated Testing
+        manualTesting: Manual Testing
+        automatedTesting: Automated Testing
       performanceTesting:
-        loadUndPerformanceTesting : Load & Performance Testing
-        subHeader :
-          serverSidePerformanceTesting : Server-Side Performance
-          clientSidePerformanceTesting : Client-Side Performance
+        loadUndPerformanceTesting: Load & Performance Testing
+        subHeader:
+          serverSidePerformanceTesting: Server-Side Performance
+          clientSidePerformanceTesting: Client-Side Performance
       testGuidance: Test Guidance & Support
     salesforce:
       teaser:
@@ -156,7 +308,7 @@ en_US:
           technischerTester: "Technischer Tester (m/w/d/*)"
           lastUndPerformanceTester: "Last- und Performancetester (m/w/d/*)"
     jobsBackground:
-      title : |
+      title: |
         We look forward to
         welcoming you at Xceptance!
   docsPage:

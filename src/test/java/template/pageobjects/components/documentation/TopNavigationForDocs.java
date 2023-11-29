@@ -1,15 +1,14 @@
 package template.pageobjects.components.documentation;
 
+import com.xceptance.neodymium.util.Neodymium;
+import io.qameta.allure.Step;
+import template.pageobjects.components.AbstractComponent;
+import template.pageobjects.pages.documentation.BaseManualPage;
+
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-
-import com.xceptance.neodymium.util.Neodymium;
-
-import io.qameta.allure.Step;
-import template.pageobjects.components.AbstractComponent;
-import template.pageobjects.pages.documentation.BaseManualPage;
 
 public class TopNavigationForDocs extends AbstractComponent
 {

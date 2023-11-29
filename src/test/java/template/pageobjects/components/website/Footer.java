@@ -1,13 +1,11 @@
 package template.pageobjects.components.website;
 
+import com.xceptance.neodymium.util.Neodymium;
+import template.pageobjects.components.AbstractComponent;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-
-import com.codeborne.selenide.SelenideElement;
-import com.xceptance.neodymium.util.Neodymium;
-
-import template.pageobjects.components.AbstractComponent;
 
 public class Footer extends AbstractComponent
 {

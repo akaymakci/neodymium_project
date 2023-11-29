@@ -1,15 +1,14 @@
 package template.pageobjects.pages.website;
 
+import com.codeborne.selenide.SelenideElement;
+import com.xceptance.neodymium.util.Neodymium;
+import io.qameta.allure.Step;
+import template.pageobjects.pages.documentation.DocsXltPage;
+
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-
-import com.codeborne.selenide.SelenideElement;
-import com.xceptance.neodymium.util.Neodymium;
-
-import io.qameta.allure.Step;
-import template.pageobjects.pages.documentation.DocsXltPage;
 
 public class DocumentationPage extends AbstractBrowsingPage
 {

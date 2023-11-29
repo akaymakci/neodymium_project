@@ -1,4 +1,4 @@
-package template.neodymium.tests.smoke.testdata.pageobjects.components;
+package template.neodymium.tests.testdata.pageobjects.components;
 
 public class SearchTestData
 {

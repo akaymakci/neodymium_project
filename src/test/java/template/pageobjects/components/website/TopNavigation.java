@@ -1,22 +1,19 @@
 package template.pageobjects.components.website;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-
 import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
-
 import io.qameta.allure.Step;
 import template.pageobjects.components.AbstractComponent;
 import template.pageobjects.pages.website.CareerPage;
 import template.pageobjects.pages.website.ServicePage;
 import template.pageobjects.pages.website.XltPage;
 
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+
 public class TopNavigation extends AbstractComponent
 {
-    SelenideElement hamburgerButton = $("button.navbar-toggle");
-
     @Override
     public void isComponentAvailable()
     {
@@ -29,16 +26,9 @@ public class TopNavigation extends AbstractComponent
     @Step("click on the top category '{topCategory}'")
     public void clickCategory(String topCategory)
     {
-        if (Neodymium.isDesktop())
-        {
-            $$(navigationContainer.getSearchCriteria() + " .navbar-header ul.nav li").findBy(exactText(topCategory)).click();
-        }
-        else
-        {
-            hamburgerButton.click();
-            $$(navigationContainer.getSearchCriteria() + " .navbar-header ul.nav li").findBy(exactText(topCategory)).click();
+        hamburgerButtonClick();
+        $$(navigationContainer.getSearchCriteria() + " .navbar-header ul.nav li").findBy(exactText(topCategory)).click();
 
-        }
     }
 
     public ServicePage openServicePage()
@@ -85,16 +75,8 @@ public class TopNavigation extends AbstractComponent
         navigationContainer.find(" nav > div > a").shouldBe(visible);
 
         // Verifies the Navigation bar is visible
-        if (Neodymium.isDesktop())
-        {
-            navigationContainer.find(".navbar-header ul.nav").shouldBe(visible);
-        }
-        else
-        {
-            hamburgerButton.shouldBe(visible);
-            hamburgerButton.click();
-            navigationContainer.find(".navbar-header ul.nav").shouldBe(visible);
-        }
+        hamburgerButtonClick();
+        navigationContainer.find(".navbar-header ul.nav").shouldBe(visible);
 
         // Asserts there are categories in the nav bar.
         navigationContainer.find("ul.nav").shouldBe(visible);
@@ -107,12 +89,16 @@ public class TopNavigation extends AbstractComponent
         $$(navigationContainer.getSearchCriteria() + " li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.careers"))).shouldBe(visible);
         $$(navigationContainer.getSearchCriteria() + " li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.contact"))).shouldBe(visible);
         $$(navigationContainer.getSearchCriteria() + " li a").findBy(exactText(Neodymium.localizedText("header.topNavigation.blog"))).shouldBe(visible);
-
-        if (!Neodymium.isDesktop())
-        {
-            hamburgerButton.click();
-        }
-
+        hamburgerButtonClick();
     }
 
+    public void hamburgerButtonClick()
+    {
+        if (!Neodymium.isDesktop())
+        {
+            var hamburgerButton = $("button.navbar-toggle");
+            hamburgerButton.shouldBe(visible);
+            hamburgerButton.click();
+        }
+    }
 }

@@ -1,14 +1,12 @@
 package template.neodymium.tests.smoke.documentation;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import com.xceptance.neodymium.module.statement.testdata.DataSet;
 import com.xceptance.neodymium.util.DataUtils;
-
+import org.junit.Before;
+import org.junit.Test;
 import template.flows.OpenPageFlows;
 import template.neodymium.tests.AbstractTest;
-import template.neodymium.tests.smoke.testdata.pageobjects.components.SearchTestData;
+import template.neodymium.tests.testdata.pageobjects.components.SearchTestData;
 import template.pageobjects.pages.documentation.DocsXltPage;
 
 //@DataFile("src/test/resources/template/tests/smoke/SearchTest.json")

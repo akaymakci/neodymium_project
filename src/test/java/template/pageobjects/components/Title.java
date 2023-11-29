@@ -1,12 +1,10 @@
 package template.pageobjects.components;
 
-import static com.codeborne.selenide.Selenide.title;
-
+import com.xceptance.neodymium.util.SelenideAddons;
+import io.qameta.allure.Step;
 import org.junit.Assert;
 
-import com.xceptance.neodymium.util.SelenideAddons;
-
-import io.qameta.allure.Step;
+import static com.codeborne.selenide.Selenide.title;
 
 public class Title extends AbstractComponent
 {

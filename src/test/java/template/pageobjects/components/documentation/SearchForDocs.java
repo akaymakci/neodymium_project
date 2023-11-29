@@ -1,17 +1,16 @@
 package template.pageobjects.components.documentation;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-
 import com.codeborne.selenide.SelenideElement;
 import com.xceptance.neodymium.util.Neodymium;
-
 import io.qameta.allure.Step;
-import template.neodymium.tests.smoke.testdata.pageobjects.utils.XceptanceHelper;
+import template.neodymium.tests.testdata.pageobjects.utils.XceptanceHelper;
 import template.pageobjects.components.AbstractComponent;
 import template.pageobjects.pages.documentation.SearchResultsPage;
 import template.pageobjects.pages.documentation.SearchWithNoResultPage;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class SearchForDocs extends AbstractComponent
 {

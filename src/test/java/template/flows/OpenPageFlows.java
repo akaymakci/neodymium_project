@@ -1,13 +1,12 @@
 package template.flows;
 
-import static com.codeborne.selenide.Selenide.clearBrowserCookies;
-import static com.codeborne.selenide.Selenide.open;
-
 import com.xceptance.neodymium.util.Neodymium;
-
 import io.cucumber.java.en.And;
 import io.qameta.allure.Step;
 import template.pageobjects.pages.website.HomePage;
+
+import static com.codeborne.selenide.Selenide.clearBrowserCookies;
+import static com.codeborne.selenide.Selenide.open;
 
 public class OpenPageFlows
 {
