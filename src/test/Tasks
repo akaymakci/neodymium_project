@@ -1,0 +1,137 @@
+Getting familiar with Neodymium
+Neodymium wiki: https://github.com/Xceptance/neodymium-library/wiki
+Page Object Pattern: https://github.com/Xceptance/neodymium-library/wiki/Page-Objects
+Template project: https://github.com/Xceptance/neodymium-template
+Selenide: https://selenide.org/documentation.html
+CSS Locators: https://www.w3schools.com/cssref/css_selectors.asp
+Reliable locators:  https://blog.mozilla.org/fxtesteng/2013/09/26/writing-reliable-locators-for-selenium-and-webdriver-tests/
+
+General test automation coding hints Neodymium projects guidelines
+
+In general TA for tutorials if you have time and nothing else to do:
+Web UI JAVA: https://testautomationu.applitools.com/learningpaths.html?id=web-ui-java-path
+
+System setup
+Install Java
+Install Maven (not needed in the beginning)
+Install Eclipse
+Eclipse 2022-03
+JUnit4
+Code formatter
+Install chromedriver
+Add to path
+
+Task 0: Learn Base Technologies
+If you just learned about CSS locators let’s start by getting familiar with them and play this little game:
+https://flukeout.github.io/
+
+Also if you are new to version control systems, you might want to start with having a look at git, and start with these:
+
+https://www.codecademy.com/courses/learn-git/lessons/git-workflow/exercises/hello-git
+https://learngitbranching.js.org/
+
+Another base technology which can be quite helpful are regular expressions (or regex). If you don’t what this is check here:
+https://regexlearn.com/learn/regex101
+https://regexcrossword.com/ (advanced)
+Task 1: Prepare test suite in GitLab
+Clone project from Gitlab (ask Bernd Weigel / Olha Omelianchuk  for your repo)
+Clone the neodymium-template project
+Copy the template files/folders into your GitLab project and commit it
+Hint: There is already a README file in the GitLab project
+Ignore everything related to Cucumber (BDD) for the moment
+Add the project to your IDE (Eclipse)
+Use Import > Existing Maven project
+Task 2: Run HomePageTest locally
+Configure path to chromedriver if not added to system, see the link for more information
+Run HomePageTest in Eclipse (otherwise you need to install Maven 3)
+Task 3: Extend HomePageTest
+Get familiar with the  HomePageTest, HomePage and Title classes
+Think, what elements could be validated in the test
+Add validations to the validateStructure methods of the HomePage
+Implement a component for the header navigation
+Create class inheriting from AbstractComponent
+Implement expected/required methods
+Add this to the correct class so you can reuse it within future PageObjects
+Implement only the methods that you need for current tasks or that can be used with your current classes
+goToHomePage
+Use HomePage.isExpectedPage to make sure that the correct page was opened.
+Add a component covering the footer as well
+
+Task 4.1: Add ServicePageTest (Localization)
+Link:  Xceptance services page
+Scenario to implement:
+Open the HomePage
+Go to the service page
+Validate the structure of the service page
+Validate the content of the service page
+Create new page objects and components so we can reuse them in future tests
+Extend the header navigation component
+GoToServicePage
+Create ServicePageTest in the same package as HomePageTest
+Validate the structure of the page
+Validate content of the page
+Use the localization feature of Neodymium
+Use methods from the new page objects in the ServicePageTest
+Check page objects and  components you have written in your previous tasks and add localization to them
+
+
+Task 4.2: Add CareersPageTest
+Do the same things as in 4.1 for https://www.xceptance.com/en/careers/ and try to use all learnings from the first code review.
+Task 5: Add Documentation Page test package
+Link: XLT documentation
+Scenario to implement:
+Open the Xceptance HomePage
+Go to XLT Page
+Go to the documentation start page
+Open the User Manual Link
+Validate the structure of the documentation start page
+Use a new package for the documentation part
+New page objects (for pages and components on the page)
+Think about the current structure
+Can you still use the same base classes?
+Implement a solution using inheritance
+Make sure your structure is easy to understand and to extend for the future
+
+Task 6: Add Documentation Page search tests (Test data)
+Scenario:
+Open the Xceptance HomePage
+Go to XLT Page
+Go to the documentation start page
+Open the User Manual Link
+Search for specific documentation with search phrases
+Implement the needed page objects and components
+Use Neodymiums test data concept to execute the same test method with different test data sets.
+
+Task 7: Extend all test with a mobile browser
+Emulate some kind of iPhone using the chrome profile (see config/browser.properties)
+Add the new browser as a second browser to Abstract Test
+Adjust the neodymium.properties to have a matching breakpoint for mobile
+Use Neodymium.isMobile() to implement conditions in the page objects / components (maybe also test flow) where needed
+Future ideas:
+Create tests for :
+Cucumber
+Multi-language
+Mobile Multi-browser
+
+
+Learning Topics when waiting for reviews:
+CSS:
+https://www.w3schools.com/cssref/css_selectors.asp
+Regex:
+https://www.w3schools.com/java/java_regex.asp
+https://regex101.com/ change the flavor to Java before using
+XPath:
+https://www.w3schools.com/xml/xpath_intro.asp
+JSON:
+https://www.w3schools.com/js/js_json_intro.asp
+Java Lambdas
+https://www.javatpoint.com/java-lambda-expressions
+https://www.baeldung.com/java-8-lambda-expressions-tips
+YAML:
+Find a good introduction link
+Owner configuration
+
+
+Questions:
+What are the main differences between XPath and CSS (Pros and Cons)
+Where would I use one over the other
