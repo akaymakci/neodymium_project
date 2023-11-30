@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class HomePage extends AbstractBrowsingPage
 {
-    private SelenideElement homePageElement = $(".homepage");
+    private final SelenideElement homePageElement = $(".homepage");
 
     @Override
     @Step("ensure this is a homepage")

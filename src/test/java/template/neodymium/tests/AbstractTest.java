@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(NeodymiumRunner.class)
 @Browser("Chrome_1400x1000")
-//@Browser("Chrome_iPhoneX")
+@Browser("Chrome_iPhoneX")
 public abstract class AbstractTest
 {
 }
