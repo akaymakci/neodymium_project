@@ -7,7 +7,8 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class HomePage extends AbstractBrowsingPage
 {
@@ -22,7 +23,6 @@ public class HomePage extends AbstractBrowsingPage
     }
 
     @Step("validate poster slide")
-//    private void validatePosterSlide(int position, String headline)
     private void validatePosterSlide()
     {
         var carouselIndicator = $$(".carousel-indicators li");
