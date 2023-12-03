@@ -8,6 +8,7 @@ public class XltPageTest extends AbstractTest
 {
 
     @Test
+    
     public void testBrowsing()
     {
 
